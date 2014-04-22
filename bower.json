@@ -1,0 +1,9 @@
+{
+    "name": "Emix",
+    "version": "0.0.1",
+    "dependencies": {
+        "jquery": "latest",
+        "bootstrap": "latest",
+    	"font-awesome": "latest"
+	}
+}
