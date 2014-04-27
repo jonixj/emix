@@ -1,8 +1,6 @@
 <?php namespace Emix;
 
-use DateInterval;
-use DateTime;
-use \Eloquent;
+use Jenssegers\Mongodb\Model as Eloquent;
 use Emix\Reporting\Presenters\PresentableTrait;
 use Emix\ReportInterface;
 

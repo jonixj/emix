@@ -22,7 +22,7 @@ class Reporter
     {
         $this->reportType = $type;
         $this->report->setReportType($type);
-        $this->reportConf = require app('path') . '/config/reports/' . $type->name . '.php';
+        $this->reportConf = require app('path') . '/config/reports/' . $type->getConfigFileName();
         return $this;
     }
 
@@ -36,13 +36,9 @@ class Reporter
 
     public function report()
     {
-        $reportData = [];
         foreach ($this->reportConf['content'] as $key => $item) {
-            $reportData[$key] = ['title' => $item['title'], 'type' => $item['type']];
-            $reportData[$key]['value'] = $item['script']($this->gateway);
+            $this->report->$key = $item['script']($this->gateway);
         }
-        $this->report->content = json_encode($reportData);
-
         return $this->report;
     }
 

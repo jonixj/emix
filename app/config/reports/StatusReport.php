@@ -22,12 +22,13 @@ return [
         'uptime' => [
             'type' => 'number',
             'title' => 'Server Uptime',
-            'alert_limit' => 1562656,
             'script' => function ($gateway) {
                     $cmd = 'cat /proc/uptime | awk \'{ print $1}\'';
 
                     return (float)$gateway->run($cmd);
                 },
+            'notice_level' => 23552,
+            'alert_level' => 235525,
         ],
         'user' => [
             'type' => 'string',
@@ -50,7 +51,7 @@ return [
      */
     'display' => [
         'uptime',
-        'user',
+       // 'server_load',
         'current_dir',
         'created_at',
     ],

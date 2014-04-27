@@ -40,7 +40,7 @@ class ReportsController extends \BaseController
         $reportTypes = $this->reportType->getAll();
 
         $data = ['reports' => $reports, 'reportTypes' => $reportTypes];
-
+        //dd($data['reports']->first());
         return View::make('reports.index')->with($data);
     }
 
@@ -49,13 +49,12 @@ class ReportsController extends \BaseController
      *
      * @return Response
      */
-    public function create()
+    public function create($type)
     {
-        $reportType = $this->reportType->find(3);
+        $reportType = $this->reportType->find($type);
 
         foreach ($this->server->getAll() as $server) {
-            $report = $this->reporter->apply($reportType)->onServer($server)->report();
-            $report->save();
+            $this->reporter->apply($reportType)->onServer($server)->report()->save();
         }
 
         return "The reports have been created";

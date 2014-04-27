@@ -1,6 +1,6 @@
 <?php namespace Emix;
 
-use Eloquent;
+use Jenssegers\Mongodb\Model as Eloquent;
 
 class Server extends Eloquent
 {
@@ -13,7 +13,10 @@ class Server extends Eloquent
 
     public function reports()
     {
-        return $this->hasMany('Emix\Report');
+
+	//$object = new hej();
+	//return $object;
+	return $this->hasMany('Emix\Report');
     }
 
     public function getHost()
@@ -43,12 +46,7 @@ class Server extends Eloquent
 
     public function getLatestReport($type)
     {
-        return $this->reports()->whereHas(
-            'ReportType',
-            function ($q) use ($type) {
-                $q->where('name', 'like', $type);
-
-            }
-        )->orderBy('created_at', 'desc')->take(1)->first();
+        return $this->reports()->whereRaw(array('report_type_id' => $type))->orderBy('created_at', 'desc')->take(1)->first();
     }
 }
+

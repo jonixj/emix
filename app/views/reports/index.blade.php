@@ -14,7 +14,7 @@
         <tbody>
         @foreach($reportType->reports as $report)
         <tr>
-            {{ $report->present()->tableRow }}
+            {{ $report->present()->tableRow() }}
         </tr>
         @endforeach
         </tbody>

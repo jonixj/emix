@@ -108,6 +108,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
         'Emix\Repositories\BackendServiceProvider',
         'Frozennode\Administrator\AdministratorServiceProvider',
+	'Jenssegers\Mongodb\MongodbServiceProvider',
 	),
 
 	/*

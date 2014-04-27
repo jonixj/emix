@@ -54,8 +54,9 @@ trait PresentableTrait
      */
     function __get($name)
     {
-        if (is_null(parent::__get($name)) && isset(parent::__get('content')->$name->value)) {
-            return parent::__get('content')->{$name}->value;
+        if (is_null(parent::__get($name))) {
+            //dd("magic");
+            return "N/A";
         }
 
         return parent::__get($name);

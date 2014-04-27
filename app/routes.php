@@ -27,7 +27,7 @@ Route::get(
         $types = App::make('Emix\Repositories\ReportTypeRepositoryInterface');
         $reportMenu = $menu->addChild('Reports', array('uri' => '/reports'));
         foreach($types->getAll() as $reportType){
-            $reportMenu->addChild($reportType->name);
+            $reportMenu->addChild($reportType);
         }
 
         $menu->addChild('Admin', array('uri' => '/admin'));
@@ -35,12 +35,14 @@ Route::get(
         $renderer = new ListRenderer(new \Knp\Menu\Matcher\Matcher());
          dd($renderer->render($menu));
         */
+	//$users = DB::collection('reports')->get();
+	//dd($users);
         return View::make('welcome');
 }
 );//->before('auth');
 
 Route::resource('servers', 'ServersController');
-
+Route::get('reports/create/{type}', 'ReportsController@create');
 Route::resource('sessions', 'SessionsController');
 Route::get('login', ['as' => 'login', 'uses' => 'SessionsController@create']);
 Route::get('logout', ['as' => 'logout', 'uses' => 'SessionsController@destroy']);

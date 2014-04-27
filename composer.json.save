@@ -7,8 +7,8 @@
 		"laravel/framework": "4.1.*",
 	    "phpseclib/phpseclib":"*",
         "frozennode/administrator": "dev-master",
-        "knplabs/knp-menu": "2.0.*@dev",
-	"jenssegers/mongodb": "*"
+        "knplabs/knp-menu": "2.0.*@dev"
+	
 	},
 	"autoload": {
 		"classmap": [

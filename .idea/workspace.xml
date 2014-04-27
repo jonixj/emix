@@ -26,76 +26,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Reporter.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Emix/Reporting/Reporter.php">
+      <file leaf-file-name="Report.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Emix/Reporting/Presenters/Report.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="44" selection-start="688" selection-end="688" vertical-scroll-proportion="-13.666667" vertical-offset="92" max-vertical-offset="810">
+            <state line="60" column="22" selection-start="1238" selection-end="1238" vertical-scroll-proportion="0.5025126" vertical-offset="600" max-vertical-offset="1635">
               <folding>
-                <element signature="e#33#74#0" expanded="true" />
+                <element signature="e#44#57#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="63" selection-start="798" selection-end="798" vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="1020">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestReport.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/reports/TestReport.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="35" selection-start="643" selection-end="643" vertical-scroll-proportion="-17.5" vertical-offset="0" max-vertical-offset="705">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/reports/show.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="5" selection-start="377" selection-end="377" vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="375">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExampleTest.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/tests/ExampleTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="330">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestCase.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/tests/TestCase.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="4" selection-start="330" selection-end="330" vertical-scroll-proportion="0.34532374" vertical-offset="0" max-vertical-offset="695">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/reports/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="10" selection-start="577" selection-end="577" vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="435">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StatusReport.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/reports/StatusReport.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="12" selection-start="0" selection-end="1355" vertical-scroll-proportion="-13.75" vertical-offset="45" max-vertical-offset="930">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -110,8 +47,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/config/auth.php" />
-        <option value="$PROJECT_DIR$/app/config/packages/frozennode/administrator/administrator.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2014_04_06_235146_add_password_to_users.php" />
         <option value="$PROJECT_DIR$/app/controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/app/views/sessions/create.php" />
@@ -135,40 +70,41 @@
         <option value="$PROJECT_DIR$/app/database/migrations/2014_04_11_042607_add_report_types_relation.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2014_03_15_231047_create_reports_table.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2014_04_08_000912_add_content_to_reports.php" />
-        <option value="$PROJECT_DIR$/app/controllers/ServersController.php" />
         <option value="$PROJECT_DIR$/app/Emix/Repositories/ReportRepositoryInterface.php" />
         <option value="$PROJECT_DIR$/app/Emix/Repositories/ElqntReportRepository.php" />
-        <option value="$PROJECT_DIR$/app/Emix/Report.php" />
         <option value="$PROJECT_DIR$/app/Emix/Repositories/ReportTypeRepositoryInterface.php" />
         <option value="$PROJECT_DIR$/app/Emix/Repositories/ElqntReportTypeRepository.php" />
         <option value="$PROJECT_DIR$/app/views/reports.blade.php" />
         <option value="$PROJECT_DIR$/app/views/reports.index.blade.php" />
         <option value="$PROJECT_DIR$/app/config/reports/VPSLoad.php" />
         <option value="$PROJECT_DIR$/app/config/reports/FancyReport.php" />
-        <option value="$PROJECT_DIR$/app/Emix/Reporting/Presenters/PresentableTrait.php" />
-        <option value="$PROJECT_DIR$/app/Emix/ReportType.php" />
-        <option value="$PROJECT_DIR$/app/Emix/Reporting/Presenters/Presenter.php" />
-        <option value="$PROJECT_DIR$/app/controllers/ReportsController.php" />
         <option value="$PROJECT_DIR$/app/views/reports/show.blade.php" />
         <option value="$PROJECT_DIR$/app/views/layout.blade.php" />
-        <option value="$PROJECT_DIR$/app/Emix/Server.php" />
-        <option value="$PROJECT_DIR$/app/views/servers.blade.php" />
-        <option value="$PROJECT_DIR$/app/Emix/Reporting/Presenters/Report.php" />
-        <option value="$PROJECT_DIR$/app/config/reports/StatusReport.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/app/Emix/ReportInterface.php" />
-        <option value="$PROJECT_DIR$/app/Emix/Reporting/Reporter.php" />
-        <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/config/reports/TestReport.php" />
+        <option value="$PROJECT_DIR$/app/tests/TestCase.php" />
+        <option value="$PROJECT_DIR$/app/Emix/Report.php" />
+        <option value="$PROJECT_DIR$/app/Emix/Reporting/Presenters/PresentableTrait.php" />
+        <option value="$PROJECT_DIR$/app/controllers/ServersController.php" />
         <option value="$PROJECT_DIR$/app/views/reports/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Emix/ReportTypeInterface.php" />
+        <option value="$PROJECT_DIR$/app/Emix/Reporting/Reporter.php" />
+        <option value="$PROJECT_DIR$/app/views/servers.blade.php" />
+        <option value="$PROJECT_DIR$/app/Emix/Server.php" />
+        <option value="$PROJECT_DIR$/app/Emix/ReportType.php" />
+        <option value="$PROJECT_DIR$/app/controllers/ReportsController.php" />
+        <option value="$PROJECT_DIR$/app/routes.php" />
+        <option value="$PROJECT_DIR$/app/Emix/Reporting/Presenters/Presenter.php" />
+        <option value="$PROJECT_DIR$/app/config/reports/StatusReport.php" />
+        <option value="$PROJECT_DIR$/app/Emix/Reporting/Presenters/Report.php" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
-    <option name="width" value="1440" />
-    <option name="height" value="792" />
+    <option name="width" value="1366" />
+    <option name="height" value="743" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -201,7 +137,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -248,25 +183,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emix" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emix" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tests" />
+              <option name="myItemId" value="Emix" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -287,6 +204,10 @@
               <option name="myItemId" value="Emix" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Reporting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -302,7 +223,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="Emix" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Reporting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presenters" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -348,11 +277,12 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="preferences.keymap" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.PHP" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -362,7 +292,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../cloudplanner" />
     <property name="dynamic.classpath" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="SearchEverywhereHistory" value="ser&#10;eloquent&#10;route&#10;secli&#10;sessionscon&#10;rou&#10;report&#10;uptime&#10;server&#10;sec&#10;app&#10;model.p" />
+    <property name="SearchEverywhereHistory" value="&#10;ser&#10;eloquent&#10;route&#10;secli&#10;sessionscon&#10;rou&#10;report&#10;uptime&#10;server&#10;sec&#10;app&#10;model.p" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -465,48 +395,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="792" extended-state="6" />
+    <frame x="0" y="0" width="1366" height="743" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32898173" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287037" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298611" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23333333" sideWeight="0.49803922" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.49845678" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27279413" sideWeight="0.49803922" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31180555" sideWeight="0.5006536" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32898173" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32898173" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298611" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31180555" sideWeight="0.50130546" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32898173" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31180555" sideWeight="0.4986945" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -522,59 +432,11 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/frozennode/administrator/src/config/administrator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.6830294" vertical-offset="1200" max-vertical-offset="2070" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Emix/Gateways/MockServerGateway.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="5" selection-start="434" selection-end="434" vertical-scroll-proportion="0.41304347" vertical-offset="0" max-vertical-offset="690" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Emix/Reporting/StatusReport/Reporter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="1" selection-start="649" selection-end="649" vertical-scroll-proportion="0.5495251" vertical-offset="0" max-vertical-offset="737" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Emix/Reporting/StatusReport/StatusReporterInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="1" selection-start="68" selection-end="68" vertical-scroll-proportion="0.06311361" vertical-offset="0" max-vertical-offset="713" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Emix/Reporting/StatusReport/MockReporter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="244" selection-end="244" vertical-scroll-proportion="0.25245443" vertical-offset="0" max-vertical-offset="960" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Emix/Reporting/StatusReport/SSHStatusReporter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="111" selection-end="111" vertical-scroll-proportion="0.08415147" vertical-offset="0" max-vertical-offset="713" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Emix/Gateways/SSHServerGateway.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="9" selection-start="1400" selection-end="1400" vertical-scroll-proportion="0.4740533" vertical-offset="607" max-vertical-offset="1320" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Emix/Gateways/ServerGatewayInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="25" selection-start="130" selection-end="130" vertical-scroll-proportion="0.13043478" vertical-offset="0" max-vertical-offset="690" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_04_04_181641_add_server_credentials.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="10" selection-start="190" selection-end="422" vertical-scroll-proportion="0.4347826" vertical-offset="0" max-vertical-offset="690" />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/json.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="9" selection-start="2588" selection-end="2588" vertical-scroll-proportion="0.42777" vertical-offset="910" max-vertical-offset="3345" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Emix/Repositories/ElqntServerRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="26" selection-start="336" selection-end="336" vertical-scroll-proportion="0.37868163" vertical-offset="0" max-vertical-offset="713" />
@@ -613,11 +475,6 @@
     <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_03_15_231047_create_reports_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="0" selection-start="321" selection-end="321" vertical-scroll-proportion="0.3478261" vertical-offset="0" max-vertical-offset="690" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/packages/frozennode/administrator/administrator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="6" selection-start="215" selection-end="215" vertical-scroll-proportion="0.35450518" vertical-offset="60" max-vertical-offset="2145" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_03_18_153457_add_server_relation.php">
@@ -660,18 +517,6 @@
         <state line="34" column="4" selection-start="639" selection-end="639" vertical-scroll-proportion="0.7073509" vertical-offset="0" max-vertical-offset="721" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Emix/Reporting/Presenters/PresentableTrait.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="7" selection-start="271" selection-end="271" vertical-scroll-proportion="0.31206658" vertical-offset="0" max-vertical-offset="1035">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Emix/Reporting/Presenters/Presenter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="0" selection-start="747" selection-end="747" vertical-scroll-proportion="0.9570042" vertical-offset="0" max-vertical-offset="780" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Emix/Repositories/ElqntReportTypeRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="37" selection-start="337" selection-end="337" vertical-scroll-proportion="0.3653295" vertical-offset="0" max-vertical-offset="698" />
@@ -692,21 +537,6 @@
         <state line="29" column="32" selection-start="524" selection-end="524" vertical-scroll-proportion="0.6232092" vertical-offset="0" max-vertical-offset="698" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Emix/ReportType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="29" selection-start="141" selection-end="141" vertical-scroll-proportion="0.18723994" vertical-offset="0" max-vertical-offset="721" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/servers.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="87" selection-start="640" selection-end="640" vertical-scroll-proportion="0.41608876" vertical-offset="0" max-vertical-offset="721" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ServersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="5" selection-start="645" selection-end="645" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="1335" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layout.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="52" column="14" selection-start="2090" selection-end="2090" vertical-scroll-proportion="0.65217394" vertical-offset="330" max-vertical-offset="1125" />
@@ -717,75 +547,9 @@
         <state line="1" column="30" selection-start="29" selection-end="29" vertical-scroll-proportion="0.0057971017" vertical-offset="11" max-vertical-offset="735" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Emix/Reporting/Presenters/Report.php">
+    <entry file="file://$PROJECT_DIR$/app/tests/TestCase.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="34" selection-start="1061" selection-end="1061" vertical-scroll-proportion="0.9607293" vertical-offset="80" max-vertical-offset="1335" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ReportsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="28" selection-start="1485" selection-end="1485" vertical-scroll-proportion="0.7377279" vertical-offset="329" max-vertical-offset="1905" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Emix/Server.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="452" selection-end="452" vertical-scroll-proportion="0.31697056" vertical-offset="179" max-vertical-offset="900">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Emix/ReportInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="33" selection-start="250" selection-end="250" vertical-scroll-proportion="0.25245443" vertical-offset="0" max-vertical-offset="713">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Emix/Report.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="62" selection-start="294" selection-end="294" vertical-scroll-proportion="0.18934081" vertical-offset="0" max-vertical-offset="900" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Emix/Reporting/Reporter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="44" selection-start="688" selection-end="688" vertical-scroll-proportion="-13.666667" vertical-offset="92" max-vertical-offset="810">
-          <folding>
-            <element signature="e#33#74#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="63" selection-start="798" selection-end="798" vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="1020">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/reports/StatusReport.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="12" selection-start="0" selection-end="1355" vertical-scroll-proportion="-13.75" vertical-offset="45" max-vertical-offset="930">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/reports/TestReport.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="35" selection-start="643" selection-end="643" vertical-scroll-proportion="-17.5" vertical-offset="0" max-vertical-offset="705">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/reports/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="10" selection-start="577" selection-end="577" vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="435">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/reports/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="5" selection-start="377" selection-end="377" vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="375">
+        <state line="19" column="0" selection-start="335" selection-end="335" vertical-scroll-proportion="0.57575756" vertical-offset="0" max-vertical-offset="594">
           <folding />
         </state>
       </provider>
@@ -797,10 +561,200 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/tests/TestCase.php">
+    <entry file="file://$PROJECT_DIR$/app/views/reports/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="4" selection-start="330" selection-end="330" vertical-scroll-proportion="0.34532374" vertical-offset="0" max-vertical-offset="695">
+        <state line="19" column="5" selection-start="377" selection-end="377" vertical-scroll-proportion="0.57575756" vertical-offset="0" max-vertical-offset="594">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/reports/TestReport.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="35" selection-start="643" selection-end="643" vertical-scroll-proportion="0.42424244" vertical-offset="252" max-vertical-offset="846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/packages/frozennode/administrator/administrator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="162" selection-end="162" vertical-scroll-proportion="0.38356164" vertical-offset="31" max-vertical-offset="2145">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Emix/ReportInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="33" selection-start="250" selection-end="250" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="285">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Emix/Report.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="56" selection-start="181" selection-end="196" vertical-scroll-proportion="0.15075377" vertical-offset="0" max-vertical-offset="945">
+          <folding>
+            <element signature="e#23#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Emix/Gateways/SSHServerGateway.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="9" selection-start="1400" selection-end="1400" vertical-scroll-proportion="0.3478261" vertical-offset="730" max-vertical-offset="1305">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Emix/Reporting/StatusReport/StatusReporterInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="21" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="575">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Emix/Reporting/StatusReport/MockReporter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="5" selection-start="306" selection-end="306" vertical-scroll-proportion="0.2347826" vertical-offset="0" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Emix/Reporting/StatusReport/Report.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="154" selection-end="154" vertical-scroll-proportion="0.2347826" vertical-offset="0" max-vertical-offset="600">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Remote/SecLibGateway.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="19" selection-start="106" selection-end="119" vertical-scroll-proportion="-2.9583333" vertical-offset="4" max-vertical-offset="4560">
+          <folding>
+            <element signature="e#36#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ServersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="288" selection-end="288" vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="1350">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/reports/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="45" selection-start="501" selection-end="501" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="435">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/UserInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="7" selection-start="368" selection-end="368" vertical-scroll-proportion="0.3478261" vertical-offset="130" max-vertical-offset="705">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Emix/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="45" selection-start="163" selection-end="176" vertical-scroll-proportion="0.104347825" vertical-offset="0" max-vertical-offset="840">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Emix/ReportTypeInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="23" selection-end="23" vertical-scroll-proportion="0.07826087" vertical-offset="0" max-vertical-offset="575">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="10" selection-start="1247" selection-end="1247" vertical-scroll-proportion="0.6086956" vertical-offset="40" max-vertical-offset="1065">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Emix/Reporting/Presenters/PresentableTrait.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="26" selection-start="822" selection-end="822" vertical-scroll-proportion="0.26956522" vertical-offset="385" max-vertical-offset="1050">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Emix/Reporting/Presenters/Presenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="5" selection-start="306" selection-end="306" vertical-scroll-proportion="0.4" vertical-offset="85" max-vertical-offset="750">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Emix/Server.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="5" selection-start="478" selection-end="478" vertical-scroll-proportion="0.5043478" vertical-offset="115" max-vertical-offset="870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/servers.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="82" selection-start="401" selection-end="401" vertical-scroll-proportion="0.4173913" vertical-offset="0" max-vertical-offset="575">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ReportsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="9" selection-start="1513" selection-end="1513" vertical-scroll-proportion="0.30608696" vertical-offset="679" max-vertical-offset="1890">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/UserProviderInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="34" selection-start="291" selection-end="291" vertical-scroll-proportion="0.32663316" vertical-offset="0" max-vertical-offset="810">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/GenericUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="20" selection-start="428" selection-end="428" vertical-scroll-proportion="0.32663316" vertical-offset="180" max-vertical-offset="1875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Emix/ReportType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="35" selection-start="168" selection-end="168" vertical-scroll-proportion="0.15075377" vertical-offset="0" max-vertical-offset="597">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Emix/Reporting/Reporter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="44" selection-start="521" selection-end="521" vertical-scroll-proportion="0.5025126" vertical-offset="45" max-vertical-offset="750">
+          <folding>
+            <element signature="e#33#74#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/reports/StatusReport.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="32" selection-start="715" selection-end="715" vertical-scroll-proportion="0.38693467" vertical-offset="219" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Emix/Reporting/Presenters/Report.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="22" selection-start="1238" selection-end="1238" vertical-scroll-proportion="0.5025126" vertical-offset="600" max-vertical-offset="1635">
+          <folding>
+            <element signature="e#44#57#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
