@@ -98,7 +98,7 @@ class Report extends Presenter
     {
         $started = (new DateTime)->sub(new DateInterval('PT' . intval($this->entity->uptime) . 'S'));
 
-        return $started->diff((new DateTime()));
+        return $started->diff(new DateTime);
     }
 
 } 
