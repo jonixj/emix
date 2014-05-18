@@ -39,8 +39,6 @@ abstract class Presenter
     function setEntity($entity)
     {
         $this->entity = $entity;
-
-        static::$conf = require app('path') . "/config/reports/{$this->reportType->name}.php";
     }
 
 }

@@ -9,20 +9,19 @@ use DateInterval;
  */
 class Report extends Presenter
 {
+
     /**
      * @var
      */
     protected static $conf;
 
-    /**
-     * @param $entity
-     */
     function __construct($entity)
     {
         parent::__construct($entity);
 
-        static::$conf = require app('path') . "/config/reports/{$this->reportType->name}.php";
+        static::$conf = require app('path') . "/config/reports/{$this->reportType->getConfigFileName()}";
     }
+
 
     /**
      * @return string
@@ -30,11 +29,20 @@ class Report extends Presenter
     function tableHeadRow()
     {
         $html = "<th>server</th>";
+
         foreach (static::$conf['display'] as $val) {
             $html .= "<th>{$val}</th>";
         }
 
         return $html;
+    }
+
+    protected function getConfItem($field, $attr)
+    {
+        if (isset(self::$conf['content'][$field][$attr])) {
+            return self::$conf['content'][$field][$attr];
+        }
+        return false;
     }
 
     /**
@@ -50,7 +58,17 @@ class Report extends Presenter
         }
 
         foreach ($reportFields as $field) {
-            $html .= "<td>{$this->{$field}}</td>";
+            $class = "";
+
+            if ( $this->getConfItem($field, 'notice_level') > $this->{$field} ){
+                $class = "warning";
+            }
+
+            if ( $this->getConfItem($field, 'alert_level') > $this->{$field} ){
+                $class = "danger";
+            }
+
+            $html .= "<td class='{$class}'>{$this->{$field}}</td>";
         }
         return $html;
     }
@@ -82,4 +100,5 @@ class Report extends Presenter
 
         return $started->diff((new DateTime()));
     }
+
 } 

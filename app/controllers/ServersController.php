@@ -14,6 +14,7 @@ class ServersController extends \BaseController
         $reportFields = Emix\Report::config($reportType, 'display');
 
         $servers = App::make('Emix\Repositories\ServerRepositoryInterface')->getAll();
+
         return View::make('servers')->with(['servers' => $servers, 'reportFields' => $reportFields, 'reportType' => $reportType]);
     }
 

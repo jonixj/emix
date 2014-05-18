@@ -18,7 +18,7 @@
         @if( $server->hasReports() )
             <td><i class="fa fa-thumbs-up"></i> {{ $server->name }}</td>
             <td>{{ $server->host }}</td>
-            {{ $server->getLatestReport($reportType)->present()->tableRow($reportFields) }}
+            {{ $server->getLatestReport($reportType)->present()->tableRow($reportFields) // }}
         @else
             <td><i class="fa fa-wheelchair"></i> {{ $server->name }}</td>
             <td>{{ $server->host }}</td>
