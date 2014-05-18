@@ -13,7 +13,5 @@ interface ReportInterface
 {
     public function setServer($server);
 
-    public function setContent($content);
-
     public function setName($name);
 }

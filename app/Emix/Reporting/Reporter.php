@@ -4,6 +4,9 @@ use Emix\Gateways\ServerGatewayInterface;
 use Emix\Server;
 use Emix\ReportInterface;
 
+/**
+ * @property Server server
+ */
 class Reporter
 {
 

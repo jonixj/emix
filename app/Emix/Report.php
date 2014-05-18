@@ -2,8 +2,10 @@
 
 use Jenssegers\Mongodb\Model as Eloquent;
 use Emix\Reporting\Presenters\PresentableTrait;
-use Emix\ReportInterface;
 
+/**
+ * @property string name
+ */
 class Report extends Eloquent implements ReportInterface
 {
 
@@ -39,13 +41,6 @@ class Report extends Eloquent implements ReportInterface
     public function setServer($server)
     {
         $this->server()->associate($server);
-    }
-
-    public function setContent($content)
-    {
-        $this->content = $content;
-
-        return $this;
     }
 
     public function setName($name)

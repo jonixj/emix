@@ -1,12 +1,15 @@
 <?php namespace Emix\Gateways;
 
-use Emix\Gateways\ServerGatewayInterface;
-
 class MockServerGateway implements ServerGatewayInterface
 {
     public function getConnection()
     {
         // TODO: Implement getConnection() method.
+    }
+
+    public function login($server)
+    {
+        // TODO: Implement login() method.
     }
 
     public function setServer($server)
