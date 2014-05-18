@@ -40,14 +40,15 @@ class ReportsController extends \BaseController
         $reportTypes = $this->reportType->getAll();
 
         $data = ['reports' => $reports, 'reportTypes' => $reportTypes];
-        //dd($data['reports']->first());
+
         return View::make('reports.index')->with($data);
     }
 
+
     /**
      * Show the form for creating a new resource.
-     *
-     * @return Response
+     * @param $type
+     * @return string
      */
     public function create($type)
     {
