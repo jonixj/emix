@@ -11,65 +11,17 @@
 |
 */
 
-use Knp\Menu\MenuFactory;
-use Knp\Menu\Renderer\ListRenderer;
-
-Route::get(
-    '/',
-    function () {
-        /*
-        $factory = new MenuFactory();
-        $menu = $factory->createItem('My menu');
-        $menu->setChildrenAttributes(['class' => 'nav navbar-nav']);
-        $menu->addChild('Home')->setUri('/')->addChild('Summer house');
-        $menu->addChild('Servers', array('uri' => '/servers'));
-
-        $types = App::make('Emix\Repositories\ReportTypeRepositoryInterface');
-        $reportMenu = $menu->addChild('Reports', array('uri' => '/reports'));
-        foreach($types->getAll() as $reportType){
-            $reportMenu->addChild($reportType);
-        }
-
-        $menu->addChild('Admin', array('uri' => '/admin'));
-
-        $renderer = new ListRenderer(new \Knp\Menu\Matcher\Matcher());
-         dd($renderer->render($menu));
-        */
-	//$users = DB::collection('reports')->get();
-	//dd($users);
-        return View::make('welcome');
-}
-);//->before('auth');
-
-Route::resource('servers', 'ServersController');
-Route::get('reports/create/{type}', 'ReportsController@create');
-Route::resource('sessions', 'SessionsController');
-Route::get('login', ['as' => 'login', 'uses' => 'SessionsController@create']);
-Route::get('logout', ['as' => 'logout', 'uses' => 'SessionsController@destroy']);
-
+Route::resource('nodes', 'NodesController');
+Route::resource('commands', 'CommandsController');
 Route::resource('reports', 'ReportsController');
 
 App::bind(
-    'Emix\Repositories\ReportRepositoryInterface',
-    'Emix\Repositories\ElqntReportRepository'
+    'Emix\Repositories\INodeRepository',
+    'Emix\Repositories\EloquentNodeRepository'
 );
 
-App::bind(
-    'Emix\ReportInterface',
-    'Emix\Report'
-);
-
-App::bind(
-    'Emix\Repositories\ServerRepositoryInterface',
-    'Emix\Repositories\ElqntServerRepository'
-);
-
-App::bind(
-    'Emix\Gateways\ServerGatewayInterface',
-    'Emix\Gateways\SSHServerGateway'
-);
-
-App::bind(
-    'Emix\Repositories\ReportTypeRepositoryInterface',
-    'Emix\Repositories\ElqntReportTypeRepository'
-);
+Route::get('/', function()
+    {
+        preg_match_all('/: ([0-9]+,[0-9]+)/','20:32:38 up 15:13, 2 users, load average: 0,00, 0,02, 0,05 ',$out);
+        dd(substr($out[0][0],2));
+    });

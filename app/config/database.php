@@ -55,9 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'emix',
-			'username'  => 'root',
-			'password'  => 'root',
+			'database'  => 'forge',
+			'username'  => 'forge',
+			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
@@ -66,8 +66,8 @@ return array(
 		'pgsql' => array(
 			'driver'   => 'pgsql',
 			'host'     => 'localhost',
-			'database' => 'database',
-			'username' => 'root',
+			'database' => 'forge',
+			'username' => 'forge',
 			'password' => '',
 			'charset'  => 'utf8',
 			'prefix'   => '',
@@ -83,14 +83,14 @@ return array(
 			'prefix'   => '',
 		),
 
-		'mongodb' => array(
-		    'driver'   => 'mongodb',
-		    'host'     => 'localhost',
-		    'port'     => 27017,
-		    'username' => '',
-		    'password' => '',
-		    'database' => 'emix'
-		),
+        'mongodb' => array(
+            'driver'   => 'mongodb',
+            'host'     => 'localhost',
+            'port'     => 27017,
+            'username' => '',
+            'password' => '',
+            'database' => 'emix'
+        ),
 
 	),
 

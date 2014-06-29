@@ -29,9 +29,9 @@ return array(
 	'connections' => array(
 
 		'production' => array(
-			'host'      => '192.168.33.21',
-			'username'  => 'vagrant',
-			'password'  => 'vagrant',
+			'host'      => '',
+			'username'  => '',
+			'password'  => '',
 			'key'       => '',
 			'keyphrase' => '',
 			'root'      => '/var/www',

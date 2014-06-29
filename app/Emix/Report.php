@@ -1,52 +1,26 @@
 <?php namespace Emix;
 
-use Jenssegers\Mongodb\Model as Eloquent;
-use Emix\Reporting\Presenters\PresentableTrait;
+use \Jenssegers\Mongodb\Model as Eloquent;
 
-/**
- * @property string name
- */
-class Report extends Eloquent implements ReportInterface
+class Report extends Eloquent
 {
-
-    use PresentableTrait;
-
-    protected $presenter = 'Emix\Reporting\Presenters\Report';
-
-    public function server()
+    protected function node()
     {
-        return $this->belongsTo('Emix\Server');
+        return $this->belongsTo('Emix\Node');
     }
 
-    public function reportType()
+    protected function container()
     {
-        return $this->belongsTo('Emix\ReportType');
+        return $this->belongsTo('Emix\Container');
     }
 
-    public function setReportType($reportType)
+    public function setNode(Node $node)
     {
-        $this->reportType()->associate($reportType);
+        return $this->node()->associate($node);
     }
 
-    public function getServer()
+    public function setContainer(Container $container)
     {
-        return $this->server();
+        return $this->container()->associate($container);
     }
-
-    public function getContentAttribute($value)
-    {
-        return json_decode($value);
-    }
-
-    public function setServer($server)
-    {
-        $this->server()->associate($server);
-    }
-
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-}
+} 

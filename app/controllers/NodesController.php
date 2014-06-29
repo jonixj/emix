@@ -1,24 +1,18 @@
 <?php
 
-use \Emix\Commands\CommandFactory;
-use \Emix\Repositories\INodeRepository;
-use Emix\Reporter;
-
-class ReportsController extends \BaseController
+use Emix\Repositories\INodeRepository;
+use \Emix\Gateway\NodeGateway;
+class NodesController extends \BaseController
 {
 
     protected $nodeRepository;
     protected $gateway;
-    protected $reportRepository;
 
-    function __construct(CommandFactory $cmdFactory, INodeRepository $nodeRepository, Reporter $reporter, \Emix\Repositories\EloquentReportRepository $reportRepository)
+    function __construct(INodeRepository $nodeRepository, NodeGateway $gateway)
     {
-        $this->cmdFactory = $cmdFactory;
         $this->nodeRepository = $nodeRepository;
-        $this->reporter = $reporter;
-        $this->reportRepository = $reportRepository;
+        $this->gateway = $gateway;
     }
-
 
     /**
      * Display a listing of the resource.
@@ -27,8 +21,8 @@ class ReportsController extends \BaseController
      */
     public function index()
     {
+        return $this->nodeRepository->all();
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -37,10 +31,7 @@ class ReportsController extends \BaseController
      */
     public function create()
     {
-        foreach($this->nodeRepository->all() as $node){
-            foreach ($this->cmdFactory->getAvailableCommands() as $cmd)
-                $this->reporter->with($node)->storeAndExec($cmd);
-        }
+        //
     }
 
 
@@ -58,17 +49,13 @@ class ReportsController extends \BaseController
     /**
      * Display the specified resource.
      *
-     * @param  String $command
+     * @param  int $id
      * @return Response
      */
-    public function show($command)
+    public function show($id)
     {
-        $report = $this->reportRepository->getLatestByNodeAndCommand(
-            $this->nodeRepository->findByName('PHP virtual server'),
-            $this->cmdFactory->getCommand($command)
-        );
-
-        return $report;
+        //$node->populateContainers($this->gateway);
+        return $this->nodeRepository->findWithContainersAndReports($id);
     }
 
 
@@ -92,7 +79,9 @@ class ReportsController extends \BaseController
      */
     public function update($id)
     {
-        //
+        $node = $this->nodeRepository->find($id);
+
+        $node->populateContainers($this->gateway);
     }
 
 
