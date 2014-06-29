@@ -7,6 +7,11 @@ use Zend\Json\Json;
 /**
  * Class Node
  * @package Emix
+ * @property string $name
+ * @property string $host
+ * @property string $port
+ * @property string $username
+ * @property string $password
  */
 class Node extends Eloquent
 {

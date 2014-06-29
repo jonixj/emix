@@ -54,7 +54,6 @@ class NodesController extends \BaseController
      */
     public function show($id)
     {
-        //$node->populateContainers($this->gateway);
         return $this->nodeRepository->findWithContainersAndReports($id);
     }
 

@@ -22,6 +22,5 @@ App::bind(
 
 Route::get('/', function()
     {
-        preg_match_all('/: ([0-9]+,[0-9]+)/','20:32:38 up 15:13, 2 users, load average: 0,00, 0,02, 0,05 ',$out);
-        dd(substr($out[0][0],2));
+        return "Tjena!";
     });
