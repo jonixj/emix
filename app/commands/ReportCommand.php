@@ -2,9 +2,15 @@
 
 use Indatus\Dispatcher\Scheduling\Schedulable;
 
+/**
+ * Class ReportCommand
+ */
 class ReportCommand extends \Indatus\Dispatcher\Scheduling\ScheduledCommand
 {
 
+    /**
+     * @var mixed
+     */
     protected $controller;
 
     /**
@@ -31,11 +37,21 @@ class ReportCommand extends \Indatus\Dispatcher\Scheduling\ScheduledCommand
         parent::__construct();
     }
 
+    /**
+     * @return string
+     */
     public function getName()
     {
         return $this->name;
     }
 
+    /**
+     * @return bool
+     */
+    public function isEnabled()
+    {
+        return true;
+    }
 
     /**
      * When a command should run

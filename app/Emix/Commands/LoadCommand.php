@@ -31,9 +31,9 @@ class LoadCommand extends Command implements ICommand
                 } else {
                     preg_match_all('[0-9]+,[0-9]+, [0-9]+,[0-9]+, [0-9]+,[0-9]+/', $line, $out);
                 }
-                $value = explode(',',$out[0][0]);
-                foreach($value as $i => $v){
-                    $value[$i] = (float) $v;
+                $value = explode(',', $out[0][0]);
+                foreach ($value as $i => $v) {
+                    $value[$i] = (float)$v;
                 }
                 self::$response = $value;
             }
