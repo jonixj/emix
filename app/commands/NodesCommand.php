@@ -44,6 +44,11 @@ class NodesCommand extends Command {
 	{
         $nodeId = $this->argument("node");
 
+        if (! is_string($nodeId)){
+            $this->error("Invalid node id: {$nodeId}");
+            return;
+        }
+
         $this->comment("Looking for node with id {$nodeId} ...");
 
         if ($node = $this->nodeRepository->find($nodeId)) {

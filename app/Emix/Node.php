@@ -12,6 +12,9 @@ use Zend\Json\Json;
  * @property string $port
  * @property string $username
  * @property string $password
+ * @property string $key
+ * @property string $keyphrase
+ * @property string $root
  * @property \Emix\Report $report
  */
 class Node extends Eloquent
