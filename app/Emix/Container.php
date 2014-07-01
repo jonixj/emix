@@ -15,4 +15,12 @@ class Container extends Eloquent
         return $this->hasMany('Emix\Report');
     }
 
+    public function getLatestReportByCommandName($name)
+    {
+        return $this->reports()
+            ->where('command', $name)
+            ->orderBy('created_at','desc')
+            ->first();
+    }
+
 }

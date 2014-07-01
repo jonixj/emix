@@ -1,67 +1,55 @@
 <?php
 
-use Illuminate\Console\Command;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputArgument;
+use Indatus\Dispatcher\Scheduling\Schedulable;
 
-class ReportCommand extends Command {
+class ReportCommand extends \Indatus\Dispatcher\Scheduling\ScheduledCommand
+{
 
-	/**
-	 * The console command name.
-	 *
-	 * @var string
-	 */
-	protected $name = 'command:name';
+    protected $controller;
 
-	/**
-	 * The console command description.
-	 *
-	 * @var string
-	 */
-	protected $description = 'Command description.';
+    /**
+     * The console command name.
+     *
+     * @var string
+     */
+    protected $name = 'reports:create';
 
-	/**
-	 * Create a new command instance.
-	 *
-	 * @return void
-	 */
-	public function __construct()
-	{
-		parent::__construct();
-	}
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Run all registered commands on all nodes';
 
-	/**
-	 * Execute the console command.
-	 *
-	 * @return mixed
-	 */
-	public function fire()
-	{
-		//
-	}
+    /**
+     * Create a new command instance.
+     *
+     */
+    public function __construct()
+    {
+        $this->controller = app('ReportsController');
+        parent::__construct();
+    }
 
-	/**
-	 * Get the console command arguments.
-	 *
-	 * @return array
-	 */
-	protected function getArguments()
-	{
-		return array(
-			array('example', InputArgument::REQUIRED, 'An example argument.'),
-		);
-	}
+    /**
+     * When a command should run
+     *
+     * @param Schedulable $scheduler
+     * @return mixed
+     */
+    public function schedule(Schedulable $scheduler)
+    {
+        return $scheduler->everyMinutes(1);
+    }
 
-	/**
-	 * Get the console command options.
-	 *
-	 * @return array
-	 */
-	protected function getOptions()
-	{
-		return array(
-			array('example', null, InputOption::VALUE_OPTIONAL, 'An example option.', null),
-		);
-	}
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function fire()
+    {
+        $this->controller->create();
+    }
 
 }

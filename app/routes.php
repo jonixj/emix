@@ -20,6 +20,12 @@ App::bind(
     'Emix\Repositories\EloquentNodeRepository'
 );
 
+App::bind(
+    'Emix\Repositories\IReportRepository',
+    'Emix\Repositories\EloquentReportRepository'
+);
+
+
 Route::get('/', function()
     {
         return "Tjena!";

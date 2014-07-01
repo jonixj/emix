@@ -54,7 +54,9 @@ class NodesController extends \BaseController
      */
     public function show($id)
     {
-        return $this->nodeRepository->findWithContainersAndReports($id);
+        $node = $this->nodeRepository->find($id);
+
+        return View::make('start', ['node' => $node]);
     }
 
 

@@ -1,5 +1,7 @@
 <?php namespace Emix\Commands;
 
+use Zend\Json\Json;
+
 class LoadCommand extends Command implements ICommand
 {
 
@@ -23,12 +25,14 @@ class LoadCommand extends Command implements ICommand
         return [
             "uptime",
             function ($line) {
-                preg_match_all('/: ([0-9]+,[0-9]+)/', $line, $out);
+                preg_match_all('/[0-9]+.[0-9]+, [0-9]+.[0-9]+, [0-9]+.[0-9]+/', $line, $out);
                 if (isset($out[0][0])) {
-                    $value = substr($out[0][0], 2);
                 } else {
-                    preg_match_all('/: ([0-9]+.[0-9]+)/', $line, $out);
-                    $value = substr($out[0][0], 2);
+                    preg_match_all('[0-9]+,[0-9]+, [0-9]+,[0-9]+, [0-9]+,[0-9]+/', $line, $out);
+                }
+                $value = explode(',',$out[0][0]);
+                foreach($value as $i => $v){
+                    $value[$i] = (float) $v;
                 }
                 self::$response = $value;
             }
@@ -37,23 +41,23 @@ class LoadCommand extends Command implements ICommand
 
     protected function getContainerScript()
     {
+        $this->json = "";
         return [
-            "uptime",
+            "vzlist --json -o laverage,ctid",
             function ($line) {
-                preg_match_all('/: ([0-9]+,[0-9]+)/', $line, $out);
-                if (isset($out[0][0])) {
-                    $value = substr($out[0][0], 2);
-                } else {
-                    preg_match_all('/: ([0-9]+.[0-9]+)/', $line, $out);
-                    $value = substr($out[0][0], 2);
-                }
-                self::$response = $value;
+                $this->json .= $line;
+                $load = Json::decode($this->json);
+                self::$response = $load;
             }
         ];
     }
 
     public function processContainerResponse($containersResponse)
     {
-        return [123 => 4];
+        $ccArray = [];
+        foreach ($containersResponse as $cc) {
+            $ccArray[$cc->ctid] = $cc->laverage;
+        }
+        return $ccArray;
     }
 }

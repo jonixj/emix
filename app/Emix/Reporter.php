@@ -1,9 +1,9 @@
 <?php namespace Emix;
 
-use Emix\Commands\CommandResponse;
 use Emix\Commands\ICommand;
 use Emix\Gateway\NodeGateway;
-use Carbon\Carbon;
+use Emix\Repositories\IReportRepository;
+use Log;
 
 class Reporter
 {
@@ -11,10 +11,10 @@ class Reporter
     protected $gateway;
     protected $report;
 
-    function __construct(NodeGateway $gateway, Report $report)
+    function __construct(NodeGateway $gateway, IReportRepository $reportRepository)
     {
         $this->gateway = $gateway;
-        $this->report = $report;
+        $this->reportRepository = $reportRepository;
     }
 
     public function with($node)
@@ -32,32 +32,31 @@ class Reporter
 
         try {
             $nodeValue = $cmd->setGateway($this->gateway)->executeNode($cmd);
-            echo 'Succeeded with server: ' . $this->node->name;
-        }catch (\Exception $e){
-            echo 'Failed with server: ' . $this->node->name;
+            LOG::info("Command {$cmd->getName()} was run on node: {$this->node->name}");
+        } catch (\Exception $e) {
+            LOG::warn("Could not execute command on node {$this->node->name}");
             return;
         }
 
+        $this->reportRepository
+            ->newInstance(['command' => $measure, $measure => $nodeValue])
+            ->setNode($this->node)
+            ->save();
 
-        $report = new Report();
-        $report->setNode($this->node);
-        $report->$measure = $nodeValue;
-        $report->save();
         try {
-            $containerValues = $cmd->setGateway($this->gateway)->executeContainers($cmd);
-        }catch (\Exception $e){
-
+            $ctValues = $cmd->setGateway($this->gateway)->executeContainers($cmd);
+        } catch (\Exception $e) {
+            LOG::warn("Could not execute command on nodes on server {$this->node->name}");
         }
 
-
         foreach ($this->node->containers as $container) {
-            $report = new Report();
-            $report->command = $measure;
-            $report->setContainer($container);
-            $report->$measure = isset($containerValues[$container->container_id]) ? $containerValues[$container->container_id] : 0;
-            $report->save();
-
-            echo $container->name;
+            if (!isset($ctValues[$container->ctid])) {
+                continue;
+            }
+            $this->reportRepository
+                ->newInstance(['command' => $measure, $measure => $ctValues[$container->ctid]])
+                ->setContainer($container)
+                ->save();
         };
     }
 } 

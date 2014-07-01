@@ -4,28 +4,44 @@ use \Emix\Node;
 use Emix\Repositories\INodeRepository;
 use \Illuminate\Remote\RemoteManager;
 use \Illuminate\Remote\Connection;
+
+/**
+ * Class NodeGateway
+ * @package Emix\Gateway
+ */
 class NodeGateway extends RemoteManager
 {
 
+    /**
+     * @var
+     */
     protected $config;
+    /**
+     * @var \Emix\Repositories\INodeRepository
+     */
     protected $nodeRepository;
+    /**
+     * @var bool
+     */
     protected $specific = false;
 
+    /**
+     * @param INodeRepository $nodeRepository
+     */
     function __construct(INodeRepository $nodeRepository)
     {
         $this->nodeRepository = $nodeRepository;
     }
 
+    /**
+     * @param Node $node
+     * @return $this
+     */
     function setNode(Node $node)
     {
         $this->specific = $node->name;
 
         return $this;
-    }
-
-    public function setDefaultConnection($name)
-    {
-        $this->app['config']['remote.default'] = $name;
     }
 
     /**
@@ -49,6 +65,11 @@ class NodeGateway extends RemoteManager
         return $this->multiple($names);
     }
 
+    /**
+     * @param string $name
+     * @return array
+     * @throws \InvalidArgumentException
+     */
     public function getConfig($name)
     {
         $node = $this->nodeRepository->findByName($name);

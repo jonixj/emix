@@ -11,7 +11,7 @@ class EloquentNodeRepository implements INodeRepository
 
     public function find($id)
     {
-        return Node::find($id);
+        return Node::findOrFail($id);
     }
 
     public function findWithContainers($id)
@@ -30,9 +30,9 @@ class EloquentNodeRepository implements INodeRepository
                 'containers',
                 'reports' => function ($query) {
                         $query->where('created_at', '>', new \DateTime('yesterday'));
-                },
+                    },
                 'containers.reports' => function ($query) {
-                        $query->where('created_at', '>', new \DateTime('yesterday'))->orderBy('created_at','desc');
+                        $query->orderBy('created_at', 'desc')->where('created_at', '>', new \DateTime('yesterday'));
                     },
             ]
         )->find($id);

@@ -12,3 +12,4 @@
 */
 
 Artisan::add(new NodesCommand);
+Artisan::add(new ReportCommand);

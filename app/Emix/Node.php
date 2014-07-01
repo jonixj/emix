@@ -12,6 +12,7 @@ use Zend\Json\Json;
  * @property string $port
  * @property string $username
  * @property string $password
+ * @property \Emix\Report $report
  */
 class Node extends Eloquent
 {
@@ -79,5 +80,10 @@ class Node extends Eloquent
             $this->containers()->save($container);
             // end must be fixed
         }
+    }
+
+    public function getLatestReportByCommandName($name)
+    {
+        return $this->reports()->where('command', $name)->orderBy('created_at','desc')->first();
     }
 } 
