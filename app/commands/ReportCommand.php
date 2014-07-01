@@ -31,6 +31,12 @@ class ReportCommand extends \Indatus\Dispatcher\Scheduling\ScheduledCommand
         parent::__construct();
     }
 
+    public function getName()
+    {
+        return $this->name;
+    }
+
+
     /**
      * When a command should run
      *

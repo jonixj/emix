@@ -7,6 +7,7 @@ use Log;
 
 class Reporter
 {
+    protected $reportRepository;
     protected $node;
     protected $gateway;
     protected $report;

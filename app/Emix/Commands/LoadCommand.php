@@ -4,6 +4,7 @@ use Zend\Json\Json;
 
 class LoadCommand extends Command implements ICommand
 {
+    protected $json;
 
     public static function getName()
     {
