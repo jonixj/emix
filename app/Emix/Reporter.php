@@ -27,26 +27,35 @@ class Reporter
 
     public function storeAndExec(ICommand $cmd)
     {
-        $measure = $cmd::getMeasure();
-
         try {
-            $nodeValue = $cmd->setGateway($this->gateway)->executeNode($cmd);
-            LOG::info("Command {$cmd->getName()} was run on node: {$this->node->name}");
-        } catch (\Exception $e) {
-            LOG::warn("Could not execute command on node {$this->node->name}");
-            return;
+            $this->storeAndExecOnNode($cmd);
         }
-
-        $this->reportRepository
-            ->newInstance(['command' => $measure, $measure => $nodeValue])
-            ->setNode($this->node)
-            ->save();
-
+        catch (\Exception $e){
+            LOG::warn("Could not execute command on node {$this->node->name}");
+        }
+        
         try {
-            $ctValues = $cmd->setGateway($this->gateway)->executeContainers($cmd);
+            $this->storeAndExecOnContainers($cmd);
         } catch (\Exception $e) {
             LOG::warn("Could not execute command on nodes on server {$this->node->name}");
         }
+    }
+    
+    private function storeAndExecOnNode(ICommand $cmd)
+    {
+        $nodeValue = $cmd->setGateway($this->gateway)->executeNode($cmd);
+
+        $this->reportRepository
+            ->newInstance(['command' => $cmd::getMeasure(), $cmd::getMeasure() => $nodeValue])
+            ->setNode($this->node)
+            ->save();
+            
+        LOG::info("Command {$cmd->getName()} was run on node: {$this->node->name}");
+    }
+    
+    private function storeAndExecOnContainers(ICommand $cmd)
+    {
+        $ctValues = $cmd->setGateway($this->gateway)->executeContainers($cmd);
 
         foreach ($this->node->containers as $container) {
             if (!isset($ctValues[$container->ctid])) {
@@ -54,7 +63,7 @@ class Reporter
                 continue;
             }
             $this->reportRepository
-                ->newInstance(['command' => $measure, $measure => $ctValues[$container->ctid]])
+                ->newInstance(['command' => $cmd::getMeasure(), $cmd::getMeasure() => $ctValues[$container->ctid]])
                 ->setContainer($container)
                 ->save();
         };
