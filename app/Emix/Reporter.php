@@ -50,6 +50,7 @@ class Reporter
 
         foreach ($this->node->containers as $container) {
             if (!isset($ctValues[$container->ctid])) {
+                LOG::warn("Could not find the container with ctid {$container->ctid} on {$this->node->name}");
                 continue;
             }
             $this->reportRepository
