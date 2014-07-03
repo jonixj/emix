@@ -25,7 +25,14 @@ class Node extends Eloquent
      * @var array
      */
     protected $hidden = array('password');
-
+    
+    /**
+     * Used for container population
+     * 
+     * @var mixed
+     */
+    private $json;
+    
     function __construct()
     {
         Json::$useBuiltinEncoderDecoder = true;
