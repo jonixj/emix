@@ -20,9 +20,7 @@ class Reporter
 
     public function with($node)
     {
-        $this->node = $node;
-
-        $this->gateway->setNode($this->node);
+        $this->gateway->setNode($this->node = $node);
 
         return $this;
     }
