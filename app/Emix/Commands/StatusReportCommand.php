@@ -8,6 +8,21 @@ class StatusReportCommand extends Command
     {
         $this->commands = [$uptimeCmd];
     }
+    
+    public function getName()
+    {
+        return 'StatusReport';
+    }
+    
+    public function getDescription()
+    {
+        return 'Fetches some kind of information';    
+    }
+    
+    protected function processContainerResponse($containerResponse)
+    {
+        return [];
+    }
 
     public function execute()
     {
