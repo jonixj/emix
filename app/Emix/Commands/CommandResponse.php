@@ -3,8 +3,9 @@
 
 class CommandResponse
 {
+    protected $measure;
+    protected $node;
     protected $nodeValue;
-
     protected $containerValues = [];
 
     function __construct($node, $measure)
