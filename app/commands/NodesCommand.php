@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Console\Command;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputArgument;
 
 use \Emix\Repositories\EloquentNodeRepository;
+use Emix\Gateway\NodeGateway;
 
-/**
- * Class NodesCommand
- */
 class NodesCommand extends Command
 {
 
@@ -15,7 +15,7 @@ class NodesCommand extends Command
      *
      * @var string
      */
-    protected $name = 'command:populatenodes';
+    protected $name = 'nodes:populate';
 
     /**
      * The console command description.
@@ -34,9 +34,9 @@ class NodesCommand extends Command
      * Returns a new instance
      *
      */
-    public function __construct()
+    public function __construct(EloquentNodeRepository $nodeRepository)
     {
-        $this->nodeRepository = new EloquentNodeRepository;
+        $this->nodeRepository = $nodeRepository;
         parent::__construct();
     }
 
@@ -64,7 +64,7 @@ class NodesCommand extends Command
 
         $this->comment("Starts fetching container information from {$node->name} ...");
 
-        $gate = new Emix\Gateway\NodeGateway($this->nodeRepository);
+        $gate = new NodeGateway($this->nodeRepository);
 
         $node->populateContainers($gate);
 
@@ -72,18 +72,27 @@ class NodesCommand extends Command
     }
 
     /**
-     * @return string
+     * Get the console command arguments.
+     *
+     * @return array
      */
-    public function getName()
+    protected function getArguments()
     {
-        return $this->name;
+        return array(
+            array('node', InputArgument::REQUIRED, 'The id of the node to update'),
+        );
     }
 
     /**
-     * @return bool
+     * Get the console command options.
+     *
+     * @return array
      */
-    public function isEnabled()
+    protected function getOptions()
     {
-        return true;
+        return array(
+            array('example', null, InputOption::VALUE_OPTIONAL, 'An example option.', null),
+        );
     }
+
 }

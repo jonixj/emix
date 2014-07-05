@@ -11,5 +11,5 @@
 |
 */
 
-Artisan::add(new NodesCommand);
-Artisan::add(new ReportCommand);
+Artisan::resolve('NodesCommand');
+Artisan::resolve('ReportCommand');

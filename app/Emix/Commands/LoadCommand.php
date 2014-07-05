@@ -44,7 +44,7 @@ class LoadCommand extends Command implements ICommand
     {
         $this->json = "";
         return [
-            "vzlist --json -o laverage,ctid",
+            "vzlist --json -a -o laverage,ctid",
             function ($line) {
                 $this->json .= $line;
                 $load = Json::decode($this->json);

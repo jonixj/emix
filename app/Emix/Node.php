@@ -60,11 +60,14 @@ class Node extends Eloquent
         $this->json = null;
 
         $gateway->setNode($this)->run(
-            'vzlist --json',
+            'vzlist --json -a -o ctid,hostname,ostemplate,status',
             function ($line) {
                 $this->json .= $line;
             }
         );
+        $this->json = explode('[', $this->json);
+
+        $this->json = '['.$this->json[1].']';
 
         $ccArray = Json::decode($this->json);
 

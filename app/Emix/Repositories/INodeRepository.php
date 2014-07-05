@@ -4,7 +4,8 @@
  * Interface INodeRepository
  * @package Emix\Repositories
  */
-interface INodeRepository {
+interface INodeRepository
+{
 
     /**
      * @return \Collection
@@ -28,5 +29,11 @@ interface INodeRepository {
      * @return \Emix\Node
      */
     public function findByName($name);
+
+    /**
+     * @param array $attributes
+     * @return mixed
+     */
+    public function newInstance(array $attributes = []);
 
 } 

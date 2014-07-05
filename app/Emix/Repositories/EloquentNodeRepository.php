@@ -4,16 +4,49 @@ use Emix\Node;
 
 class EloquentNodeRepository implements INodeRepository
 {
+    /**
+     * @var
+     */
+    protected $node;
+
+    /**
+     * @param $node
+     */
+    function __construct(Node $node)
+    {
+        $this->node = $node;
+    }
+
+    /**
+     * @return mixed
+     */
     public function all()
     {
-        return Node::all();
+        return $this->node->all();
     }
 
+    /**
+     * @param string $id
+     * @return mixed
+     */
     public function find($id)
     {
-        return Node::findOrFail($id);
+        return $this->node->findOrFail($id);
     }
 
+    /**
+     * @param array $attributes
+     * @return mixed
+     */
+    public function newInstance(array $attributes = [])
+    {
+        return $this->node->newInstance($attributes);
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|null|static
+     */
     public function findWithContainers($id)
     {
         return Node::with(
@@ -23,6 +56,10 @@ class EloquentNodeRepository implements INodeRepository
         )->find($id);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|null|static
+     */
     public function findWithContainersAndReports($id)
     {
         return Node::with(
@@ -38,6 +75,10 @@ class EloquentNodeRepository implements INodeRepository
         )->find($id);
     }
 
+    /**
+     * @param $name
+     * @return mixed
+     */
     public function findByName($name)
     {
         return Node::where('name', $name)->first();

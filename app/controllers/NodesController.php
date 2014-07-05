@@ -21,7 +21,9 @@ class NodesController extends \BaseController
      */
     public function index()
     {
-        return $this->nodeRepository->all();
+        $nodes = $this->nodeRepository->all();
+
+        return View::make('start')->withNodes($nodes);
     }
 
     /**
@@ -31,7 +33,8 @@ class NodesController extends \BaseController
      */
     public function create()
     {
-        //
+
+        return View::make('nodes/create');
     }
 
 
@@ -55,8 +58,8 @@ class NodesController extends \BaseController
     public function show($id)
     {
         $node = $this->nodeRepository->find($id);
-
-        return View::make('start', ['node' => $node]);
+        return $node;
+        //return View::make('start')->withNode($node);
     }
 
 
@@ -68,7 +71,9 @@ class NodesController extends \BaseController
      */
     public function edit($id)
     {
-        //
+        $node = $this->nodeRepository->find($id);
+
+        return View::make('nodes.edit')->withNode($node);
     }
 
 
