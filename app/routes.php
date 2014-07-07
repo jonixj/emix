@@ -17,16 +17,10 @@ Route::resource('reports', 'ReportsController');
 
 App::bind(
     'Emix\Repositories\INodeRepository',
-    'Emix\Repositories\EloquentNodeRepository'
+    'Emix\Repositories\MongoNodeRepository'
 );
 
 App::bind(
     'Emix\Repositories\IReportRepository',
-    'Emix\Repositories\EloquentReportRepository'
+    'Emix\Repositories\MongoReportRepository'
 );
-
-
-Route::get('/', function()
-    {
-        return "Tjena!";
-    });

@@ -17,12 +17,14 @@
             <thead>
             <th>namn</th>
             <th>current load</th>
+            <th>uptime</th>
             <th>reported</th>
             </thead>
             <tbody>
             <tr>
                 <td>{{ $node->name }}</td>
-                <td>{{ implode(', ',$node->getLatestReportByCommandName('load')['load']) }}</td>
+                <td class="text-warning">{{ implode(', ',$node->getLatestReportByCommandName('load')['load']) }}</td>
+                <td>{{ $node->getLatestReportByCommandName('uptime')['uptime'] }}</td>
                 <td>{{ $node->getLatestReportByCommandName('load')['created_at'] }}</td>
                 <td><button class="btn btn-success btn-xs show-ct">Show containers</button></td>
             </tr>
@@ -36,6 +38,7 @@
                 <th>os</th>
                 <th>status</th>
                 <th>current load</th>
+                <th>uptime</th>
                 <th>reported</th>
             </thead>
             <tbody>
@@ -47,6 +50,7 @@
                 <td>{{ $container->status }}</td>
                 @if($container->getLatestReportByCommandName('load')['load'])
                 <td>{{ implode(', ',$container->getLatestReportByCommandName('load')['load']) }}</td>
+                <td>{{ $container->getLatestReportByCommandName('uptime')['uptime'] }}</td>
                 <td>{{ $container->getLatestReportByCommandName('load')['created_at'] }}</td>
                 @endif
             </tr>
@@ -58,8 +62,8 @@
 </div>
 <script>
     $(function(){
-        $('.show-ct').click(function(){
-            $( ".ct-table" ).fadeToggle( "fast", function() {
+        $('.show-ct').click(function(el){
+            $('.ct-table').fadeToggle( "fast", function() {
                 // Animation complete.
             });
         });

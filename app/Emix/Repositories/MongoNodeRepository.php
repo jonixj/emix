@@ -2,7 +2,7 @@
 
 use Emix\Node;
 
-class EloquentNodeRepository implements INodeRepository
+class MongoNodeRepository implements INodeRepository
 {
     /**
      * @var
@@ -84,4 +84,21 @@ class EloquentNodeRepository implements INodeRepository
         return Node::where('name', $name)->first();
     }
 
-} 
+    /**
+     * @return mixed
+     */
+    public function allWithContainers()
+    {
+        return Node::with(
+            [
+                'containers',
+                'reports' => function ($query) {
+                        $query->where('created_at', '>', new \DateTime('today'));
+                    },
+                'containers.reports' => function ($query) {
+                        $query->orderBy('created_at', 'desc')->where('created_at', '>', new \DateTime('today'));
+                    },
+            ]
+        )->take(100)->get();
+    }
+}

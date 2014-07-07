@@ -6,8 +6,9 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"jenssegers/mongodb": "*",
-                "zendframework/zend-json": "*",
-                "indatus/dispatcher": "dev-master"
+        "zendframework/zend-json": "*",
+        "indatus/dispatcher": "dev-master",
+        "barryvdh/laravel-debugbar": "1.*"
 	},
 	"autoload": {
 		"classmap": [

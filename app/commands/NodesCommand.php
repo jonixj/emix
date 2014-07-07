@@ -4,7 +4,7 @@ use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-use \Emix\Repositories\EloquentNodeRepository;
+use \Emix\Repositories\MongoNodeRepository;
 use Emix\Gateway\NodeGateway;
 
 class NodesCommand extends Command
@@ -25,7 +25,7 @@ class NodesCommand extends Command
     protected $description = 'Fetches and updates all containers on a node';
 
     /**
-     * @var Emix\Repositories\EloquentNodeRepository
+     * @var Emix\Repositories\MongoNodeRepository
      */
     protected $nodeRepository;
 
@@ -34,7 +34,7 @@ class NodesCommand extends Command
      * Returns a new instance
      *
      */
-    public function __construct(EloquentNodeRepository $nodeRepository)
+    public function __construct(MongoNodeRepository $nodeRepository)
     {
         $this->nodeRepository = $nodeRepository;
         parent::__construct();

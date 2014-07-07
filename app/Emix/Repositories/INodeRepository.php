@@ -25,6 +25,11 @@ interface INodeRepository
     public function findWithContainers($id);
 
     /**
+     * @return mixed
+     */
+    public function allWithContainers();
+
+    /**
      * @param $name
      * @return \Emix\Node
      */

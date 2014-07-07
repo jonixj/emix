@@ -17,7 +17,7 @@ use Zend\Json\Json;
  * @property string $root
  * @property \Emix\Report $report
  */
-class Node extends Eloquent
+class Node extends Eloquent implements Server
 {
     /**
      * The attributes excluded from the model's JSON form.
@@ -25,19 +25,21 @@ class Node extends Eloquent
      * @var array
      */
     protected $hidden = array('password');
-    
+
     /**
      * Used for container population
-     * 
+     *
      * @var mixed
      */
     private $json;
-    
+
+    /**
+     *
+     */
     function __construct()
     {
         Json::$useBuiltinEncoderDecoder = true;
     }
-
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -47,23 +49,36 @@ class Node extends Eloquent
         return $this->hasMany('Emix\Container');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function reports()
     {
         return $this->hasMany('Emix\Report');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function getReports()
     {
         return $this->reports();
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function getContainers()
     {
         return $this->containers();
     }
 
+    /**
+     * @param NodeGateway $gateway
+     */
     public function populateContainers(NodeGateway $gateway)
     {
+        //FIXME this method needs a total remake (extract to own class?)
         $this->json = null;
 
         $gateway->setNode($this)->run(
@@ -74,7 +89,7 @@ class Node extends Eloquent
         );
         $this->json = explode('[', $this->json);
 
-        $this->json = '['.$this->json[1].']';
+        $this->json = '[' . $this->json[1] . ']';
 
         $ccArray = Json::decode($this->json);
 
@@ -95,8 +110,21 @@ class Node extends Eloquent
         }
     }
 
+    /**
+     * @param $ctid
+     * @return mixed
+     */
+    public function getContainerByCtid($ctid)
+    {
+        return $this->containers()->where('ctid', $ctid)->first();
+    }
+
+    /**
+     * @param $name
+     * @return mixed
+     */
     public function getLatestReportByCommandName($name)
     {
-        return $this->reports()->where('command', $name)->orderBy('created_at','desc')->first();
+        return $this->reports()->where('command', $name)->orderBy('created_at', 'desc')->first();
     }
 } 

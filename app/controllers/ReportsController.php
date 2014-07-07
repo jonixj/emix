@@ -2,7 +2,9 @@
 
 use \Emix\Commands\CommandFactory;
 use \Emix\Repositories\INodeRepository;
-use Emix\Reporter;
+use \Emix\Reporter;
+use \Emix\Repositories\MongoReportRepository;
+use \Emix\Commanding\CommandBus;
 
 class ReportsController extends \BaseController
 {
@@ -10,13 +12,20 @@ class ReportsController extends \BaseController
     protected $nodeRepository;
     protected $gateway;
     protected $reportRepository;
+    protected $commandBus;
 
-    function __construct(CommandFactory $cmdFactory, INodeRepository $nodeRepository, Reporter $reporter, \Emix\Repositories\EloquentReportRepository $reportRepository)
-    {
+    function __construct(
+        CommandFactory $cmdFactory,
+        INodeRepository $nodeRepository,
+        Reporter $reporter,
+        MongoReportRepository $reportRepository,
+        CommandBus $commandBus
+    ) {
         $this->cmdFactory = $cmdFactory;
         $this->nodeRepository = $nodeRepository;
         $this->reporter = $reporter;
         $this->reportRepository = $reportRepository;
+        $this->commandBus = $commandBus;
     }
 
 
@@ -27,6 +36,7 @@ class ReportsController extends \BaseController
      */
     public function index()
     {
+        return $this->reportRepository->all();
     }
 
 
@@ -37,9 +47,10 @@ class ReportsController extends \BaseController
      */
     public function create()
     {
-        foreach($this->nodeRepository->all() as $node){
-            foreach ($this->cmdFactory->getAvailableCommands() as $cmd)
+        foreach ($this->nodeRepository->all() as $node) {
+            foreach ($this->cmdFactory->getAvailableCommands() as $cmd) {
                 $this->reporter->with($node)->storeAndExec($cmd);
+            }
         }
     }
 
@@ -49,9 +60,8 @@ class ReportsController extends \BaseController
      *
      * @return Response
      */
-    public function store()
-    {
-        //
+    public function store(){
+        var_dump('Stored!');
     }
 
 
@@ -63,12 +73,11 @@ class ReportsController extends \BaseController
      */
     public function show($command)
     {
-        $report = $this->reportRepository->getLatestByNodeAndCommand(
-            $this->nodeRepository->findByName('PHP virtual server'),
-            $this->cmdFactory->getCommand($command)
-        );
+        $node = $this->nodeRepository->all()->first();
 
-        return $report;
+        $command = CommandFactory::get($command, $node);
+
+        $this->commandBus->execute($command);
     }
 
 

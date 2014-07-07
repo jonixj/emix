@@ -123,6 +123,8 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
         'Jenssegers\Mongodb\MongodbServiceProvider',
         'Indatus\Dispatcher\ServiceProvider',
+        'Barryvdh\Debugbar\ServiceProvider',
+        'Emix\Eventing\EventingServiceProvider',
 	),
 
 	/*

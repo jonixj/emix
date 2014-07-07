@@ -8,4 +8,11 @@ interface ICommand
     public static function getDescription();
 
     public function execute();
+
+    public function getNodeScript();
+
+    public function getContainerScript();
+
+    public static function getMeasure();
+
 } 
