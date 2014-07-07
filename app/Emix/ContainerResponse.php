@@ -28,7 +28,7 @@ class ContainerResponse
     function __construct(ICommand $command, $list = [])
     {
         //TODO add some validation here
-        $this->measure = $command->getName();
+        $this->measure = $command->getMeasure();
         $this->list = $list;
     }
 

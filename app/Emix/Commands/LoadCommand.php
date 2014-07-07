@@ -43,6 +43,7 @@ class LoadCommand extends Command implements ICommand
         return [
             "uptime",
             function ($line) {
+
                 $load = $this->parseNodeOutputAsFloatArray($line);
 
                 $response = new NodeResponse($this, ['load' => $load]);
@@ -63,6 +64,9 @@ class LoadCommand extends Command implements ICommand
         return [
             "vzlist --json -a -o laverage,ctid",
             function ($line) {
+                //FIXME
+                $line = str_replace('laverage','load', $line);
+
                 $response = (new ContainerResponse($this))->fromVzJson($line);
 
                 $this->raise(new ContainerScriptWasExecuted($this->node, $response));

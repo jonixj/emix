@@ -18,7 +18,7 @@ class Container extends Eloquent implements Server
     public function getLatestReportByCommandName($name)
     {
         return $this->reports()
-            ->where('command', $name)
+            ->where('measure', $name)
             ->orderBy('created_at','desc')
             ->first();
     }

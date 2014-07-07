@@ -18,7 +18,7 @@ class NodeResponse
      */
     function __construct(ICommand $command, $measures)
     {
-        $this->measure = $command->getName();
+        $this->measure = $command->getMeasure();
         $this->data = $measures;
     }
 

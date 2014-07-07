@@ -23,9 +23,9 @@
             <tbody>
             <tr>
                 <td>{{ $node->name }}</td>
-                <td class="text-warning">{{ implode(', ',$node->getLatestReportByCommandName('load')['load']) }}</td>
+                <td class="text-warning">{{ implode(', ',$node->getLatestReportByCommandName('load')['data']['load']) }}</td>
                 <td>{{ $node->getLatestReportByCommandName('uptime')['uptime'] }}</td>
-                <td>{{ $node->getLatestReportByCommandName('load')['created_at'] }}</td>
+                <td>{{ $node->getLatestReportByCommandName('uptime')['created_at'] }}</td>
                 <td><button class="btn btn-success btn-xs show-ct">Show containers</button></td>
             </tr>
             </tbody>
@@ -48,9 +48,9 @@
                 <td>{{ $container->host }}</td>
                 <td>{{ $container->os }}</td>
                 <td>{{ $container->status }}</td>
-                @if($container->getLatestReportByCommandName('load')['load'])
-                <td>{{ implode(', ',$container->getLatestReportByCommandName('load')['load']) }}</td>
-                <td>{{ $container->getLatestReportByCommandName('uptime')['uptime'] }}</td>
+                @if($container->getLatestReportByCommandName('load'))
+                <td class="text-warning">{{ json_encode($container->getLatestReportByCommandName('load')['data']['load']) }}</td>
+                <td>{{ $container->getLatestReportByCommandName('uptime')['data']['uptime'] }}</td>
                 <td>{{ $container->getLatestReportByCommandName('load')['created_at'] }}</td>
                 @endif
             </tr>

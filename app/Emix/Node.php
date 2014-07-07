@@ -125,6 +125,6 @@ class Node extends Eloquent implements Server
      */
     public function getLatestReportByCommandName($name)
     {
-        return $this->reports()->where('command', $name)->orderBy('created_at', 'desc')->first();
+        return $this->reports()->where('measure', $name)->orderBy('created_at', 'desc')->first();
     }
 } 

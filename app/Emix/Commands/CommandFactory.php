@@ -65,7 +65,7 @@ class CommandFactory
      */
     protected static function getFullClassName($name)
     {
-        $fullClassName = __NAMESPACE__ . "\\" . $name;
+        $fullClassName = '\\'.__NAMESPACE__ . "\\" . $name;
 
         return $fullClassName;
     }

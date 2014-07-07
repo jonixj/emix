@@ -45,7 +45,7 @@ class MongoReportRepository implements IReportRepository
     {
         foreach ($response->getList() as $ctid => $data) {
             $instanceVars = [
-                'command' => $response->getMeasure(),
+                'measure' => $response->getMeasure(),
                 'data' => $data
             ];
 
@@ -56,7 +56,7 @@ class MongoReportRepository implements IReportRepository
     public function createFromNodeResponse(Node $node, NodeResponse $response)
     {
         $instanceVars = [
-            'command' => $response->getMeasure(),
+            'measure' => $response->getMeasure(),
             'data' => $response->getData()
         ];
 

@@ -49,30 +49,7 @@ class MongoNodeRepository implements INodeRepository
      */
     public function findWithContainers($id)
     {
-        return Node::with(
-            [
-                'containers',
-            ]
-        )->find($id);
-    }
-
-    /**
-     * @param $id
-     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|null|static
-     */
-    public function findWithContainersAndReports($id)
-    {
-        return Node::with(
-            [
-                'containers',
-                'reports' => function ($query) {
-                        $query->where('created_at', '>', new \DateTime('yesterday'));
-                    },
-                'containers.reports' => function ($query) {
-                        $query->orderBy('created_at', 'desc')->where('created_at', '>', new \DateTime('yesterday'));
-                    },
-            ]
-        )->find($id);
+        return $this->allWithContainers()->find($id);
     }
 
     /**
@@ -89,16 +66,6 @@ class MongoNodeRepository implements INodeRepository
      */
     public function allWithContainers()
     {
-        return Node::with(
-            [
-                'containers',
-                'reports' => function ($query) {
-                        $query->where('created_at', '>', new \DateTime('today'));
-                    },
-                'containers.reports' => function ($query) {
-                        $query->orderBy('created_at', 'desc')->where('created_at', '>', new \DateTime('today'));
-                    },
-            ]
-        )->take(100)->get();
+        return Node::with(['containers',])->get();
     }
 }

@@ -60,7 +60,8 @@ class ReportsController extends \BaseController
      *
      * @return Response
      */
-    public function store(){
+    public function store()
+    {
         var_dump('Stored!');
     }
 
@@ -71,13 +72,13 @@ class ReportsController extends \BaseController
      * @param  String $command
      * @return Response
      */
-    public function show($command)
+    public function show($commandName)
     {
-        $node = $this->nodeRepository->all()->first();
+        foreach ($this->nodeRepository->all() as $node) {
+            $command = CommandFactory::get($commandName, $node);
 
-        $command = CommandFactory::get($command, $node);
-
-        $this->commandBus->execute($command);
+            $this->commandBus->execute($command);
+        }
     }
 
 
