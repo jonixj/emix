@@ -61,7 +61,7 @@ class ReportCommand extends \Indatus\Dispatcher\Scheduling\ScheduledCommand
      */
     public function schedule(Schedulable $scheduler)
     {
-        return $scheduler->everyMinutes(1);
+        //return $scheduler->everyMinutes(1);
     }
 
     /**

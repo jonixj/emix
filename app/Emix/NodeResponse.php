@@ -1,6 +1,6 @@
 <?php namespace Emix;
 
-use Emix\Commands\ICommand;
+use DateTime;
 
 /**
  * Class NodeResponse
@@ -8,43 +8,31 @@ use Emix\Commands\ICommand;
  */
 class NodeResponse
 {
-    protected $measure;
-
-    protected $data = [];
 
     /**
-     * @param ICommand $command
-     * @param $measures
+     * @var string
      */
-    function __construct(ICommand $command, $measures)
+    protected $response;
+
+    /**
+     * @var \DateTime
+     */
+    protected $created;
+
+    /**
+     * @param string $response
+     */
+    function __construct($response)
     {
-        $this->measure = $command->getMeasure();
-        $this->data = $measures;
+        $this->response = $response;
+        $this->created = new DateTime();
     }
 
     /**
-     * @param $measure
-     * @param $value
+     * @return string
      */
-    public function addMeasure($measure, $value)
+    public function getResponse()
     {
-        $this->data = array_add($this->data, $measure, $value);
+        return $this->response;
     }
-
-    /**
-     * @return array
-     */
-    public function getData()
-    {
-        return $this->data;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMeasure()
-    {
-        return $this->measure;
-    }
-
 }

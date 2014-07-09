@@ -17,7 +17,7 @@ use Zend\Json\Json;
  * @property string $root
  * @property \Emix\Report $report
  */
-class Node extends Eloquent implements Server
+class Node extends Eloquent implements IServer
 {
     /**
      * The attributes excluded from the model's JSON form.
@@ -58,6 +58,22 @@ class Node extends Eloquent implements Server
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function serverState()
+    {
+        return $this->hasOne('Emix\ServerState');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function getServerState()
+    {
+        return $this->serverState()->first();
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function getReports()
@@ -73,6 +89,13 @@ class Node extends Eloquent implements Server
         return $this->containers();
     }
 
+    public function addMeasure(Measure $measure)
+    {
+        $state = is_null($this->getServerState()) ? new ServerState : $this->getServerState()->first();
+
+        $state->addMeasure($measure)->setNode($this)->save();
+    }
+
     /**
      * @param NodeGateway $gateway
      */
@@ -82,7 +105,7 @@ class Node extends Eloquent implements Server
         $this->json = null;
 
         $gateway->setNode($this)->run(
-            'vzlist --json -a -o ctid,hostname,ostemplate,status',
+            'vzlist --json -a -o ctid,hostname,ostemplate,status,ip',
             function ($line) {
                 $this->json .= $line;
             }
@@ -100,6 +123,7 @@ class Node extends Eloquent implements Server
             } else {
                 $container = new Container();
             }
+            $container->ip = $cc->ip;
             $container->ctid = $cc->ctid;
             $container->host = $cc->hostname;
             $container->os = $cc->ostemplate;

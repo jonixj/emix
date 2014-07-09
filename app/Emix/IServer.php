@@ -9,6 +9,6 @@
 namespace Emix;
 
 
-interface Server {
+interface IServer {
 
 } 

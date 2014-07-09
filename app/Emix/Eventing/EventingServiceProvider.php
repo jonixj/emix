@@ -14,7 +14,7 @@ class EventingServiceProvider extends ServiceProvider
         $listeners = $this->app['config']->get('emix.listeners');
 
         foreach ($listeners as $listener) {
-            $this->app['events']->listen('Emix.Commands.*', $listener);
+            $this->app['events']->listen('Emix.*', $listener);
         }
     }
 

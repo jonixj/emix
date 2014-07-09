@@ -2,7 +2,7 @@
 
 use Jenssegers\Mongodb\Model as Eloquent;
 
-class Container extends Eloquent implements Server
+class Container extends Eloquent implements IServer
 {
 
     public function Node()

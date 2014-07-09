@@ -24,3 +24,5 @@ App::bind(
     'Emix\Repositories\IReportRepository',
     'Emix\Repositories\MongoReportRepository'
 );
+
+App::singleton('CurrentServerStates');

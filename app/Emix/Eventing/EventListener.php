@@ -1,5 +1,7 @@
 <?php namespace Emix\Eventing;
 
+use Illuminate\Log\Writer;
+
 
 /**
  * Class EventListener
@@ -7,6 +9,18 @@
  */
 class EventListener
 {
+    /**
+     * @var \Illuminate\Log\Writer
+     */
+    protected $log;
+
+    /**
+     * @param Writer $log
+     */
+    function __construct(Writer $log)
+    {
+        $this->log = $log;
+    }
 
     /**
      * @param $event

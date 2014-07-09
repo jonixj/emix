@@ -21,9 +21,15 @@ class NodesController extends \BaseController
      */
     public function index()
     {
+        /*
         $nodes = $this->nodeRepository->allWithContainers();
 
         return View::make('start')->withNodes($nodes);
+        */
+
+        $nodes = $this->nodeRepository->allWithState();
+
+        return $nodes;
     }
 
     /**

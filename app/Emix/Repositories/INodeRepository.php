@@ -36,4 +36,9 @@ interface INodeRepository
      */
     public function newInstance(array $attributes = []);
 
+    /**
+     * @return mixed
+     */
+    public function allWithState();
+
 } 

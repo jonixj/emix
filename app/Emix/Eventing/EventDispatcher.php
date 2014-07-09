@@ -19,9 +19,9 @@ class EventDispatcher
         foreach ($events as $event) {
             $eventName = $this->getEventName($event);
             $this->event->fire($eventName, $event);
-        }
 
-        $this->log->info("Event {$eventName} was fired.");
+            $this->log->info("Event {$eventName} was fired.");
+        }
     }
 
     protected function getEventName($event)
