@@ -15,6 +15,8 @@ use Zend\Json\Json;
  * @property string $key
  * @property string $keyphrase
  * @property string $root
+ * @property array $ip
+ * @propery ServerState $serverState
  * @property \Emix\Report $report
  */
 class Node extends Eloquent implements IServer
@@ -25,21 +27,6 @@ class Node extends Eloquent implements IServer
      * @var array
      */
     protected $hidden = array('password');
-
-    /**
-     * Used for container population
-     *
-     * @var mixed
-     */
-    private $json;
-
-    /**
-     *
-     */
-    function __construct()
-    {
-        Json::$useBuiltinEncoderDecoder = true;
-    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -66,14 +53,6 @@ class Node extends Eloquent implements IServer
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function getServerState()
-    {
-        return $this->serverState()->first();
-    }
-
-    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function getReports()
@@ -89,48 +68,34 @@ class Node extends Eloquent implements IServer
         return $this->containers();
     }
 
+    /**
+     * @param Measure $measure
+     */
     public function addMeasure(Measure $measure)
     {
-        $state = is_null($this->getServerState()) ? new ServerState : $this->getServerState()->first();
-
-        $state->addMeasure($measure)->setNode($this)->save();
+        $this->getOrCreateServerState()->addMeasure($measure)->save();
     }
 
     /**
-     * @param NodeGateway $gateway
+     * @param $containersArray
      */
-    public function populateContainers(NodeGateway $gateway)
+    public function syncContainersFromArray($containersArray)
     {
-        //FIXME this method needs a total remake (extract to own class?)
-        $this->json = null;
+        foreach ($containersArray as $ct) {
 
-        $gateway->setNode($this)->run(
-            'vzlist --json -a -o ctid,hostname,ostemplate,status,ip',
-            function ($line) {
-                $this->json .= $line;
-            }
-        );
-        $this->json = explode('[', $this->json);
+            $container = $this->findOrMakeContainer($ct);
 
-        $this->json = '[' . $this->json[1] . ']';
+            $container->saveWithParams(
+                [
+                    'ctid' => $ct->ctid,
+                    'ip' => $ct->ip,
+                    'host' => $ct->hostname,
+                    'os' => $ct->ostemplate,
+                    'status' => $ct->status,
+                ]
+            );
 
-        $ccArray = Json::decode($this->json);
-
-        foreach ($ccArray as $cc) {
-            // Must be fixed
-            if ($this->containers()->where('ctid', $cc->ctid)->exists()) {
-                $container = $this->containers()->where('ctid', $cc->ctid)->get()->first();
-            } else {
-                $container = new Container();
-            }
-            $container->ip = $cc->ip;
-            $container->ctid = $cc->ctid;
-            $container->host = $cc->hostname;
-            $container->os = $cc->ostemplate;
-            $container->status = $cc->status;
-            $container->save();
             $this->containers()->save($container);
-            // end must be fixed
         }
     }
 
@@ -150,5 +115,26 @@ class Node extends Eloquent implements IServer
     public function getLatestReportByCommandName($name)
     {
         return $this->reports()->where('measure', $name)->orderBy('created_at', 'desc')->first();
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    protected function getOrCreateServerState()
+    {
+        return (is_null($this->serverState)) ? (new ServerState)->setNode($this) : $this->serverState;
+    }
+
+    /**
+     * @param $ct
+     * @return Container
+     */
+    protected function findOrMakeContainer($ct)
+    {
+        if ($this->containers()->where('ctid', $ct->ctid)->exists()) {
+            return $this->containers()->where('ctid', $ct->ctid)->get()->first();
+        } else {
+            return new Container();
+        }
     }
 } 

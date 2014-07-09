@@ -19,8 +19,16 @@ class Container extends Eloquent implements IServer
     {
         return $this->reports()
             ->where('measure', $name)
-            ->orderBy('created_at','desc')
+            ->orderBy('created_at', 'desc')
             ->first();
+    }
+
+    public function saveWithParams($params)
+    {
+        foreach ($params as $param => $val) {
+            $this->$param = $val;
+        }
+        $this->save();
     }
 
 }

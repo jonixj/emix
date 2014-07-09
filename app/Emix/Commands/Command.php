@@ -2,6 +2,9 @@
 
 use Emix\Node;
 use \Emix\Eventing\EventGenerator;
+use Emix\Events\NodeScriptWasExecuted;
+use Emix\NodeResponse;
+
 /**
  * Class Command
  * @package Emix\Commands
@@ -53,6 +56,16 @@ Abstract class Command implements ICommand
     public function getNode()
     {
         return $this->node;
+    }
+
+    /**
+     * @param string $response
+     */
+    public function respondToNode($response)
+    {
+        $response = new NodeResponse($response);
+
+        $this->raise(new NodeScriptWasExecuted($this->node, $this, $response));
     }
 
     /**

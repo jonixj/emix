@@ -42,7 +42,6 @@ class UptimeCommand extends Command implements ICommand
                 $response = new NodeResponse($line);
 
                 $this->raise(new NodeScriptWasExecuted($this->node, $this, $response));
-                var_dump('hej');
             }
         ];
     }

@@ -1,7 +1,7 @@
 <?php namespace Emix\Commands;
 
-use Emix\NodeResponse;
 use Emix\ContainerResponse;
+use Emix\Events\ContainerScriptWasExecuted;
 
 class LoadCommand extends Command implements ICommand
 {
@@ -13,6 +13,14 @@ class LoadCommand extends Command implements ICommand
     public static function getName()
     {
         return 'LoadCommand';
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return 'measure';
     }
 
     /**
@@ -43,12 +51,8 @@ class LoadCommand extends Command implements ICommand
         return [
             "uptime",
             function ($line) {
-
                 $load = $this->parseNodeOutputAsFloatArray($line);
-
-                $response = new NodeResponse($this, ['load' => $load]);
-
-                $this->raise(new NodeScriptWasExecuted($this->node, $response));
+                $this->respondToNode($load);
             }
         ];
     }
@@ -85,7 +89,7 @@ class LoadCommand extends Command implements ICommand
         preg_match_all('/[0-9][.,]+[0-9]+, [0-9]+[.,][0-9]+, [0-9]+[.,][0-9]+/', $line, $out);
 
         $loadArray = explode(',', $out[0][0]);
-        array_map('floatval', $loadArray);
+        $loadArray = array_map('floatval', $loadArray);
 
         return $loadArray;
     }

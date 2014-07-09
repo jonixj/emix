@@ -27,9 +27,7 @@ class NodesController extends \BaseController
         return View::make('start')->withNodes($nodes);
         */
 
-        $nodes = $this->nodeRepository->allWithState();
-
-        return $nodes;
+        return $this->nodeRepository->allWithState();
     }
 
     /**

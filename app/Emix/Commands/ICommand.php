@@ -7,6 +7,8 @@ interface ICommand
 
     public static function getDescription();
 
+    public function getType();
+
     public function execute();
 
     public function getNodeScript();
