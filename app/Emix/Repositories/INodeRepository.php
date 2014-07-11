@@ -41,4 +41,9 @@ interface INodeRepository
      */
     public function allWithState();
 
+    /**
+     * @return mixed
+     */
+    public function allWithContainersAndState();
+
 } 

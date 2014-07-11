@@ -66,12 +66,6 @@ class ReportsController extends \BaseController
     }
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  String $command
-     * @return Response
-     */
     public function show($commandName)
     {
         foreach ($this->nodeRepository->all() as $node) {

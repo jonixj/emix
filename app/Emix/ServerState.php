@@ -18,6 +18,14 @@ class ServerState extends Eloquent
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    protected function container()
+    {
+        return $this->belongsTo('Emix\Container');
+    }
+
+    /**
      * This method gets called each time we get $this->measures
      * The method casts the serialized measure array into a real measure object
      *

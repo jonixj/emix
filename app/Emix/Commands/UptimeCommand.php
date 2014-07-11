@@ -5,30 +5,49 @@ use Emix\Events\ContainerScriptWasExecuted;
 use Emix\Events\NodeScriptWasExecuted;
 use Emix\NodeResponse;
 
+/**
+ * Class UptimeCommand
+ * @package Emix\Commands
+ */
 class UptimeCommand extends Command implements ICommand
 {
 
+    /**
+     * @return string
+     */
     public static function getName()
     {
         return 'uptime';
     }
 
+    /**
+     * @return string
+     */
     public static function getMeasure()
     {
         return "uptime";
     }
 
+    /**
+     * @return string
+     */
     public function getType()
     {
         //Todo create a type class
         return 'measure';
     }
 
+    /**
+     * @return string
+     */
     public static function getDescription()
     {
         return 'This command retrieves the uptime';
     }
 
+    /**
+     * @return array
+     */
     public function getNodeScript()
     {
         return [
@@ -46,6 +65,9 @@ class UptimeCommand extends Command implements ICommand
         ];
     }
 
+    /**
+     * @return array
+     */
     public function getContainerScript()
     {
         return [
@@ -53,7 +75,7 @@ class UptimeCommand extends Command implements ICommand
             function ($line) {
                 $response = (new ContainerResponse($this))->fromVzJson($line);
 
-                $this->raise(new ContainerScriptWasExecuted($this->node, $response));
+                $this->raise(new ContainerScriptWasExecuted($this->node, $this, $response));
             }
         ];
     }

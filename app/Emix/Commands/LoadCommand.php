@@ -73,7 +73,7 @@ class LoadCommand extends Command implements ICommand
 
                 $response = (new ContainerResponse($this))->fromVzJson($line);
 
-                $this->raise(new ContainerScriptWasExecuted($this->node, $response));
+                $this->raise(new ContainerScriptWasExecuted($this->node, $this, $response));
             }
         ];
     }

@@ -69,11 +69,15 @@ class MongoNodeRepository implements INodeRepository
         return Node::with(['containers',])->get();
     }
 
+    public function allWithState(){
+        return Node::with(['serverState',])->get();
+    }
+
     /**
      * @return Node
      */
-    public function allWithState()
+    public function allWithContainersAndState()
     {
-        return Node::with(['serverState',])->get();
+        return Node::with(['serverState','containers','containers.serverState'])->get();
     }
 }

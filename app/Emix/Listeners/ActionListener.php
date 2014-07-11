@@ -6,12 +6,26 @@ use Emix\Repositories\INodeRepository;
 use Illuminate\Log\Writer;
 use Zend\Json\Json;
 
+/**
+ * Class ActionListener
+ * @package Emix\Listeners
+ */
 class ActionListener extends EventListener
 {
+    /**
+     * @var \Illuminate\Log\Writer
+     */
     protected $log;
 
+    /**
+     * @var \Emix\Repositories\INodeRepository
+     */
     protected $nodeRepository;
 
+    /**
+     * @param Writer $log
+     * @param INodeRepository $nodeRepository
+     */
     function __construct(Writer $log, INodeRepository $nodeRepository)
     {
         $this->log = $log;
@@ -21,6 +35,9 @@ class ActionListener extends EventListener
     }
 
 
+    /**
+     * @param ContainersWereFetched $event
+     */
     public function whenContainersWereFetched(ContainersWereFetched $event)
     {
         var_dump('We found some containers!');

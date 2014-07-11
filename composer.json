@@ -10,6 +10,9 @@
         "indatus/dispatcher": "dev-master",
         "barryvdh/laravel-debugbar": "1.*"
 	},
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
 	"autoload": {
 		"classmap": [
 			"app/commands",

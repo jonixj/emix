@@ -2,19 +2,57 @@
 
 use Jenssegers\Mongodb\Model as Eloquent;
 
+/**
+ * Class Container
+ * @package Emix
+ */
 class Container extends Eloquent implements IServer
 {
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function Node()
     {
         return $this->belongsTo('Emix\Node');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function reports()
     {
         return $this->hasMany('Emix\Report');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function serverState()
+    {
+        return $this->hasOne('Emix\ServerState');
+    }
+
+    /**
+     * @param Measure $measure
+     */
+    public function addMeasure(Measure $measure)
+    {
+        $this->getOrCreateServerState()->addMeasure($measure)->save();
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    protected function getOrCreateServerState()
+    {
+        return (is_null($this->serverState)) ? (new ServerState)->setContainer($this) : $this->serverState;
+    }
+
+    /**
+     * @param $name
+     * @return mixed
+     */
     public function getLatestReportByCommandName($name)
     {
         return $this->reports()
@@ -23,6 +61,9 @@ class Container extends Eloquent implements IServer
             ->first();
     }
 
+    /**
+     * @param $params
+     */
     public function saveWithParams($params)
     {
         foreach ($params as $param => $val) {

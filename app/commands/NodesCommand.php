@@ -49,18 +49,7 @@ class NodesCommand extends Command
     {
         $nodeId = $this->argument("node");
 
-        if (!is_string($nodeId)) {
-            $this->error("Invalid node id: {$nodeId}");
-            return;
-        }
-
-        $this->comment("Looking for node with id {$nodeId} ...");
-
-        if ($node = $this->nodeRepository->find($nodeId)) {
-            $this->info("Node with name {$node->name} found");
-        } else {
-            $this->error("Node with id {$nodeId} could not be found");
-        };
+        $node = $this->findOrExit($nodeId);
 
         $this->comment("Starts fetching container information from {$node->name} ...");
 
@@ -69,6 +58,23 @@ class NodesCommand extends Command
         $node->populateContainers($gate);
 
         $this->info("Done fetching container information from {$node->name} ...");
+    }
+
+    protected function findOrExit($nodeId)
+    {
+        $this->comment("Looking for node with id {$nodeId} ...");
+
+        if (!is_string($nodeId)) {
+            $this->error("Invalid node id: {$nodeId}");
+            return;
+        }
+
+        if ($node = $this->nodeRepository->find($nodeId)) {
+            $this->info("Node with name {$node->name} found");
+        } else {
+            $this->error("Node with id {$nodeId} could not be found");
+            exit();
+        };
     }
 
     /**

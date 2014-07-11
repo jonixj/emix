@@ -41,6 +41,14 @@ class ContainerResponse
     }
 
     /**
+     * @return array
+     */
+    public function getResponse()
+    {
+        return $this->list;
+    }
+
+    /**
      * @return mixed
      */
     public function getMeasure()
@@ -55,7 +63,7 @@ class ContainerResponse
      */
     public function addValuePair($ctid, $measure, $value)
     {
-        // We do not want to save the ctid information - as use it as key instead
+        // We do not want to save the ctid information - use it as key instead
         if ($measure != 'ctid') {
             $this->list[$ctid][$measure] = $value;
         }
@@ -66,7 +74,22 @@ class ContainerResponse
      */
     public function popContainer()
     {
-        return array_pop($this->list);
+        // Not pretty ...
+        list($values, $ctid) = [end($this->list), key($this->list)];
+
+        unset($this->list[$ctid]);
+
+        return [$ctid => $values];
+    }
+
+
+    /**
+     * @param $ctid
+     * @return bool
+     */
+    public function getContainerByCtid($ctid)
+    {
+        return (isset($this->list[$ctid])) ? $this->list[$ctid] : false;
     }
 
     /**
