@@ -1,6 +1,6 @@
 <?php namespace Emix\Commands;
 
-use Emix\ContainerResponse;
+use Emix\ServerResponse\ContainerResponse;
 use Emix\Events\ContainerScriptWasExecuted;
 
 class LoadCommand extends Command implements ICommand

@@ -1,7 +1,8 @@
 <?php
 
 use Emix\Repositories\INodeRepository;
-use \Emix\Gateway\NodeGateway;
+use Emix\Gateway\NodeGateway;
+
 class NodesController extends \BaseController
 {
 
@@ -21,12 +22,6 @@ class NodesController extends \BaseController
      */
     public function index()
     {
-        /*
-        $nodes = $this->nodeRepository->allWithContainers();
-
-        return View::make('start')->withNodes($nodes);
-        */
-
         return $this->nodeRepository->allWithContainersAndState();
     }
 
@@ -37,8 +32,7 @@ class NodesController extends \BaseController
      */
     public function create()
     {
-
-        return View::make('nodes/create');
+        //
     }
 
 
@@ -61,9 +55,7 @@ class NodesController extends \BaseController
      */
     public function show($id)
     {
-        $node = $this->nodeRepository->find($id);
-        return $node;
-        //return View::make('start')->withNode($node);
+        return $this->nodeRepository->find($id);
     }
 
 
@@ -75,9 +67,7 @@ class NodesController extends \BaseController
      */
     public function edit($id)
     {
-        $node = $this->nodeRepository->find($id);
-
-        return View::make('nodes.edit')->withNode($node);
+        //
     }
 
 

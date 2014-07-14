@@ -71,10 +71,11 @@ class NodesCommand extends Command
 
         if ($node = $this->nodeRepository->find($nodeId)) {
             $this->info("Node with name {$node->name} found");
-        } else {
-            $this->error("Node with id {$nodeId} could not be found");
-            exit();
-        };
+            return $node;
+        }
+
+        $this->error("Node with id {$nodeId} could not be found");
+        exit();
     }
 
     /**

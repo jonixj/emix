@@ -1,9 +1,9 @@
 <?php namespace Emix\Commands;
 
 use Emix\Node;
-use \Emix\Eventing\EventGenerator;
+use Emix\Eventing\EventGenerator;
 use Emix\Events\NodeScriptWasExecuted;
-use Emix\NodeResponse;
+use Emix\ServerResponse\NodeResponse;
 
 /**
  * Class Command

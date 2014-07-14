@@ -1,7 +1,7 @@
 <?php namespace Emix\Events;
 
 use Emix\Node;
-use Emix\NodeResponse;
+use Emix\ServerResponse\NodeResponse;
 
 class ContainersWereFetched implements IEvent
 {

@@ -2,6 +2,7 @@
 
 use Emix\Gateway\NodeGateway;
 use Emix\Node;
+use Illuminate\Foundation\Application;
 
 /**
  * Class CommandFactory
@@ -15,12 +16,15 @@ class CommandFactory
      */
     protected $gate;
 
+    protected $app;
+
     /**
      * @param NodeGateway $gate
      */
-    function __construct(NodeGateway $gate)
+    function __construct(NodeGateway $gate, Application $app)
     {
         $this->gate = $gate;
+        $this->app = $app;
     }
 
     /**
@@ -34,12 +38,21 @@ class CommandFactory
     /**
      * @return array
      */
-    public function getAvailableCommands()
+    public function getAllCommands()
     {
         return [
-            'LoadCommand',
-            'UptimeCommand',
+            $this->app->make('Emix\Commands\LoadCommand'),
+            $this->app->make('Emix\Commands\UptimeCommand'),
         ];
+    }
+
+    public function getCommandDetailsAsArray()
+    {
+        foreach ($this->getAllCommands() as $cmd) {
+            $commands[] = ['name' => $cmd->getName(), 'description' => $cmd->getDescription()];
+        }
+
+        return $commands;
     }
 
     /**
@@ -65,7 +78,7 @@ class CommandFactory
      */
     protected static function getFullClassName($name)
     {
-        $fullClassName = '\\'.__NAMESPACE__ . "\\" . $name;
+        $fullClassName = '\\' . __NAMESPACE__ . "\\" . $name;
 
         return $fullClassName;
     }

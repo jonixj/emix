@@ -11,4 +11,7 @@ namespace Emix;
 
 interface IServer {
 
-} 
+    public function getHost();
+
+    public function getPort();
+}

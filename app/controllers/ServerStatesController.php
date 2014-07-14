@@ -7,17 +7,9 @@ use Emix\CurrentServerStates;
  */
 class ServerStatesController extends \BaseController {
 
-    /**
-     * @var Emix\CurrentServerStates
-     */
-    protected $currentServerStates;
-
-    /**
-     * @param CurrentServerStates $currentServerStates
-     */
-    function __construct(CurrentServerStates $currentServerStates)
+    function __construct()
     {
-        $this->currentServerStates = $currentServerStates;
+        //
     }
 
     /**
@@ -27,7 +19,7 @@ class ServerStatesController extends \BaseController {
 	 */
 	public function index()
 	{
-		return json_encode($this->currentServerStates->get());
+		//
 	}
 
 

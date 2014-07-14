@@ -69,6 +69,22 @@ class Node extends Eloquent implements IServer
     }
 
     /**
+     * @return string
+     */
+    public function getHost()
+    {
+        return $this->host;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPort()
+    {
+        return $this->port;
+    }
+
+    /**
      * @param Measure $measure
      */
     public function addMeasure(Measure $measure)

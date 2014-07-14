@@ -1,15 +1,21 @@
 <?php
 
 use \Emix\Commands\CommandFactory;
+use \Emix\Repositories\INodeRepository;
+use \Emix\Commanding\CommandBus;
 
 class CommandsController extends \BaseController
 {
 
     protected $commandFactory;
+    protected $nodeRepository;
+    protected $commandBus;
 
-    function __construct(CommandFactory $commandFactory)
+    function __construct(CommandFactory $commandFactory, INodeRepository $nodeRepository, CommandBus $commandBus)
     {
         $this->commandFactory = $commandFactory;
+        $this->nodeRepository = $nodeRepository;
+        $this->commandBus = $commandBus;
     }
 
     /**
@@ -19,9 +25,17 @@ class CommandsController extends \BaseController
      */
     public function index()
     {
-        foreach ($this->commandFactory->getAvailableCommands() as $cmd) {
-            echo $cmd->getName() . ' - ' . $cmd->getDescription() . '<br>';
+        return $this->commandFactory->getCommandDetailsAsArray();
+    }
+
+    public function execute($commandName)
+    {
+        foreach ($this->nodeRepository->all() as $node) {
+            $command = $this->commandFactory->get($commandName, $node);
+            $this->commandBus->execute($command);
         }
+
+        return "Done!";
     }
 
     /**
@@ -36,7 +50,7 @@ class CommandsController extends \BaseController
 
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in storage
      *
      * @return Response
      */

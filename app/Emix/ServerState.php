@@ -72,7 +72,7 @@ class ServerState extends Eloquent
         $array = parent::toArray();
         $array['measures'] = [];
         foreach ($this->measures as $measure) {
-            $array['measures'][] = $measure->toArray();
+            $array['measures'][$measure->getName()] = $measure->toArray();
         }
         return $array;
     }

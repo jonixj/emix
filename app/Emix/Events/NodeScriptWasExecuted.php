@@ -1,6 +1,6 @@
 <?php namespace Emix\Events;
 
-use Emix\NodeResponse;
+use Emix\ServerResponse\NodeResponse;
 use Emix\Node;
 use Emix\Commands\ICommand;
 

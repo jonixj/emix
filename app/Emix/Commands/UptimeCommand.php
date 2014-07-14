@@ -1,9 +1,9 @@
 <?php namespace Emix\Commands;
 
-use Emix\ContainerResponse;
+use Emix\ServerResponse\ContainerResponse;
 use Emix\Events\ContainerScriptWasExecuted;
 use Emix\Events\NodeScriptWasExecuted;
-use Emix\NodeResponse;
+use Emix\ServerResponse\NodeResponse;
 
 /**
  * Class UptimeCommand
@@ -17,7 +17,7 @@ class UptimeCommand extends Command implements ICommand
      */
     public static function getName()
     {
-        return 'uptime';
+        return 'UptimeCommand';
     }
 
     /**

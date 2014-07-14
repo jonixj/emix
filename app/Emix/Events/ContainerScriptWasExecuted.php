@@ -1,7 +1,7 @@
 <?php namespace Emix\Events;
 
 use Emix\Node;
-use Emix\ContainerResponse;
+use Emix\ServerResponse\ContainerResponse;
 use Emix\Commands\ICommand;
 
 /**
