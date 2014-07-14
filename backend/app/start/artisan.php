@@ -12,4 +12,3 @@
 */
 
 Artisan::resolve('NodesCommand');
-Artisan::resolve('ReportCommand');

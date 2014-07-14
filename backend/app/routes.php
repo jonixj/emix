@@ -20,4 +20,3 @@ Route::get(
     }
 );
 Route::get('commands/execute/{command}', 'CommandsController@execute');
-//Route::get('','CommandsController@execute');
